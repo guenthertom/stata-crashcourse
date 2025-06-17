@@ -13,9 +13,9 @@
 
 In this first video, we introduce the Stata interface and demonstrate how to run your very first commands. You'll see how Stata combines the flexibility of spreadsheet tools with the power of reproducible syntax-based workflows.
 
-[![Watch the video](https://img.youtube.com/vi/cbAEUV9TMmY/0.jpg)](https://www.youtube.com/watch?v=cbAEUV9TMmY)
-
 👉 Click the image to open the video on YouTube. Right-click to open the video in a new tab.
+
+[![Watch the video](https://img.youtube.com/vi/cbAEUV9TMmY/0.jpg)](https://www.youtube.com/watch?v=cbAEUV9TMmY)
 
 ## Video 2: Stata commands
 
