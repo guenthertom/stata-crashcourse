@@ -3,6 +3,7 @@
 **Intro into Stata that will enable you to conduct your first data analysis.**
 
 This short course is designed to get you started with Stata, focusing on core skills needed for basic data management and statistical analysis. It includes example `.do` files, slides with short video explanations and exercises.
+
 I developed this course as part of an international teaching collaboration between **Freie Universität Berlin** and the **University of Leeds**. The purpose of this repository is to keep the material accessible to students and independent learners beyond my employment at Freie Universität Berlin.
 
 ## 🔍 What You'll Learn
