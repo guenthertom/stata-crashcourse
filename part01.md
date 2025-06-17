@@ -26,3 +26,7 @@ In this first video, we introduce the Stata interface and demonstrate how to run
 ## Video 5: Data inspection
 
 ## Video 6: Bulding your data set
+
+## 🧪 Exercises: Apply What You’ve Learned
+
+Once you've completed all 6 videos, check out out hands-on exercises in Git. These will reinforce your understanding before we move on to more advanced analysis.
