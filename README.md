@@ -1,6 +1,6 @@
 # Stata Crash Course
 
-**Intro into Stata that will enable you to conduct your first data analysis.**
+**Introduction into Stata that will enable you to conduct your first data analysis.**
 
 This short course is designed to get you started with Stata, focusing on core skills needed for basic data management and statistical analysis. It includes example `.do` files, slides with short video explanations and exercises.
 
