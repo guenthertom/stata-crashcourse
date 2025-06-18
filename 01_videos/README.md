@@ -1,7 +1,5 @@
 # Overview 
 
-## Structure of the learning material
-
 The course teaches you Stata's basic principles via a combination of videos and slides. They are assigned to different parts: 
 - Part 1: Introduction to Stata and building your data set for analysis
 - Part 2: Introduction into data analysis with Stata
