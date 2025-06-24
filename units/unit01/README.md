@@ -1,4 +1,4 @@
-# Unit 1 – Getting Started with Stata
+# Unit 1 – First steps in Stata
 
 In our first unit, we introduce the Stata interface and demonstrate how to run your very first commands. You'll see how Stata combines the flexibility of spreadsheet tools with the power of reproducible syntax-based workflows.
 
