@@ -14,6 +14,7 @@ Read the [slides for this unit](slides01.pdf) before watching the video.
 
 [![Watch the video](https://img.youtube.com/vi/cbAEUV9TMmY/0.jpg)](https://www.youtube.com/watch?v=cbAEUV9TMmY)
 
+<br><br>
 
 ## 🧪 Exercises: Apply What You’ve Learned
 
