@@ -6,6 +6,7 @@ In our first unit, we introduce the Stata interface and demonstrate how to run y
 
 Read the [slides for this unit](slides01.pdf) before watching the video.
 
+---
 
 ## ▶️ Video
 
