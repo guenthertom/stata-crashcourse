@@ -1,10 +1,12 @@
 # Unit 2 – Stata commands
 
-In our first unit, we introduce the Stata interface and demonstrate how to run your very first commands. You'll see how Stata combines the flexibility of spreadsheet tools with the power of reproducible syntax-based workflows.
+Our second unit introduces the foundational structure of Stata commands and guides you through the use of Stata's built-in help system. 
+
+Screenshots from Stata's help files are used with permission from StataCorp and are included here for educational purposes only.
 
 ## 📄 Slides
 
-Read the [slides for this unit](slides02.pdf) before watching the video.
+Read the [slides for this unit](unit02_slides.pdf) before watching the video.
 
 <br><br>
 
