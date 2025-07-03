@@ -1,10 +1,10 @@
 # Unit 3 – Setting up Stata
 
-In our first unit, we introduce the Stata interface and demonstrate how to run your very first commands. You'll see how Stata combines the flexibility of spreadsheet tools with the power of reproducible syntax-based workflows.
+This unit introduces do-files and essential coding practices in Stata, including running scripts, commenting, setting paths, and managing the working environment.
 
 ## 📄 Slides
 
-Read the [slides for this unit](slides03.pdf) before watching the video.
+Read the [slides for this unit](unit03_slides.pdf) before watching the video.
 
 <br><br>
 
