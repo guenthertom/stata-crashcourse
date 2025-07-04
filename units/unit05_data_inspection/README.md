@@ -1,10 +1,10 @@
 # Unit 5 – Data inspection
 
-In our first unit, we introduce the Stata interface and demonstrate how to run your very first commands. You'll see how Stata combines the flexibility of spreadsheet tools with the power of reproducible syntax-based workflows.
+This unit introduces core tools for inspecting and understanding your data in Stata. You learn how to explore variable properties, tabulate and visualize distributions, and manage temporary storage with macros and scalars.
 
 ## 📄 Slides
 
-Read the [slides for this unit](slides05.pdf) before watching the video.
+Read the [slides for this unit](unit05_slides.pdf) before watching the video.
 
 <br><br>
 
@@ -19,3 +19,10 @@ Read the [slides for this unit](slides05.pdf) before watching the video.
 ## 🧪 Exercises: Apply What You’ve Learned
 
 Once you've completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.
+
+Exercises: based on auto.dta
+- do some inspection stuff
+  - basics
+  - value labels (recovering and assigning)
+- store some stuff
+- visualize some stuff
