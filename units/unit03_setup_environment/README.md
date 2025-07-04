@@ -21,7 +21,6 @@ Read the [slides for this unit](unit03_slides.pdf) before watching the video.
 Once you've completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.
 
 Exercises: 
-- command syntax
 - pathing
 - commenting
 - Writing you own header template.
