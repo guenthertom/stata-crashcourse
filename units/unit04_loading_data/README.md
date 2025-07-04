@@ -21,12 +21,12 @@ Read the [slides for this unit](unit04_slides.pdf) before watching the video.
 Once you've completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.
 
 Exercises:
-Load a built-in data set (auto)
-  - Do we need the clear option here?
-Load a data set from a website
-Load a data set from your source path
-Load a data set from the federal employment agency into Stata
-  - What do you observe!
-Prepare the data correctly for upload, save as xlsx and csv
-Load the prepared data
-- What happend to missing values?
+- Load a built-in data set (auto)
+-- Do we need the clear option here?
+- Load a data set from a website
+- Load a data set from your source path
+- Load a data set from the federal employment agency into Stata
+-- What do you observe!
+- Prepare the data correctly for upload, save as xlsx and csv
+- Load the prepared data
+-- What happend to missing values?
