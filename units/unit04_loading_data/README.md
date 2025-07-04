@@ -1,10 +1,10 @@
 # Unit 4 – Loading data into Stata
 
-In our first unit, we introduce the Stata interface and demonstrate how to run your very first commands. You'll see how Stata combines the flexibility of spreadsheet tools with the power of reproducible syntax-based workflows.
+This unit teaches you how to load, import, and save data in Stata, covering native .dta files as well as external formats like Excel and .csv
 
 ## 📄 Slides
 
-Read the [slides for this unit](slides04.pdf) before watching the video.
+Read the [slides for this unit](unit04_slides.pdf) before watching the video.
 
 <br><br>
 
@@ -19,3 +19,14 @@ Read the [slides for this unit](slides04.pdf) before watching the video.
 ## 🧪 Exercises: Apply What You’ve Learned
 
 Once you've completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.
+
+Exercises:
+Load a built-in data set (auto)
+  - Do we need the clear option here?
+Load a data set from a website
+Load a data set from your source path
+Load a data set from the federal employment agency into Stata
+  - What do you observe!
+Prepare the data correctly for upload, save as xlsx and csv
+Load the prepared data
+- What happend to missing values?
