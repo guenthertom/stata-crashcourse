@@ -1,6 +1,6 @@
 # Unit 2 – Stata commands
 
-Our second unit introduces the foundational structure of Stata commands and guides you through the use of Stata's built-in help system. 
+This unit introduces the foundational structure of Stata commands and guides you through the use of Stata's built-in help system. 
 
 *Screenshots from Stata's help files are used with permission from StataCorp and are included here for educational purposes only.*
 
