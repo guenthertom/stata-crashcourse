@@ -1,20 +1,16 @@
 # Unit 8 – Model estimation
 
-In our first unit, we introduce the Stata interface and demonstrate how to run your very first commands. You'll see how Stata combines the flexibility of spreadsheet tools with the power of reproducible syntax-based workflows.
+This unit introduces Stata’s core commands for estimating statistical models, focusing on linear regression with Ordinary Least Squares (OLS). It also covers model tuning, result interpretation, postestimation tools, and extensions to nonlinear and panel data models.
 
 ## 📄 Slides
 
-Read the [slides for this unit](slides08.pdf) before watching the video.
-
-<br><br>
+Read the [slides for this unit](unit08_slides.pdf) before watching the video.
 
 ## ▶️ Video
 
 👉 Click the image to open the video on YouTube. Right-click to open the video in a new tab.
 
 [![Watch the video](https://img.youtube.com/vi/cbAEUV9TMmY/0.jpg)](https://www.youtube.com/watch?v=cbAEUV9TMmY)
-
-<br><br>
 
 ## 🧪 Exercises: Apply What You’ve Learned
 
