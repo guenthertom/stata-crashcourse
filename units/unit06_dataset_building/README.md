@@ -1,10 +1,10 @@
 # Unit 6 – Building your data set
 
-In our first unit, we introduce the Stata interface and demonstrate how to run your very first commands. You'll see how Stata combines the flexibility of spreadsheet tools with the power of reproducible syntax-based workflows.
+This unit introduces Stata’s merging and appending functionalities, teaching you how to combine datasets using identifiers and manage related options and errors.
 
 ## 📄 Slides
 
-Read the [slides for this unit](slides06.pdf) before watching the video.
+Read the [slides for this unit](unit06_slides.pdf) before watching the video.
 
 <br><br>
 
@@ -19,3 +19,14 @@ Read the [slides for this unit](slides06.pdf) before watching the video.
 ## 🧪 Exercises: Apply What You’ve Learned
 
 Once you've completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.
+
+- Exercises
+    - Generate some toy data
+    - Append the data
+    - Merge the data
+        - 1:1 with simple identifier
+        - Inspect _merge and question
+        - 1:1 with complex identifier
+        - You have to drop _merge before this merge!
+        - m:1
+        - m:1 but this time only keep observations from the master data and do not generate the _merge variable
