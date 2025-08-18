@@ -1,0 +1,24 @@
+format: jb-book
+root: intro
+
+chapters:
+  - file: units/README
+    title: Course overview
+  - file: units/unit01/README
+    title: Unit 1 – First Steps in Stata
+  - file: units/unit02/README
+    title: Unit 2 – Stata commands
+  - file: units/unit03/README
+    title: Unit 3 - Setting up Stata
+  - file: units/unit04/README
+    title: Unit 4 - Loading data into Stata
+  - file: units/unit05/README
+    title: Unit 5 - Data inspection  
+  - file: units/unit06/README
+    title: Unit 6 - Building your data set
+  - file: units/unit07/README
+    title: Unit 7 - Data wrangling
+  - file: units/unit08/README
+    title: Unit 8 - Model estimation    
+  - file: units/unit09/README
+    title: Unit 9 - Output presentation      
