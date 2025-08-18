@@ -1,24 +1,22 @@
 format: jb-book
-root: intro
+root: README
 
 chapters:
-  - file: units/README
-    title: Course overview
-  - file: units/unit01/README
+  - file: units/unit01_first_steps/README
     title: Unit 1 – First Steps in Stata
-  - file: units/unit02/README
+  - file: units/unit02_commands/README
     title: Unit 2 – Stata commands
-  - file: units/unit03/README
+  - file: units/unit03_setup_environment/README
     title: Unit 3 - Setting up Stata
-  - file: units/unit04/README
+  - file: units/unit04_loading_data/README
     title: Unit 4 - Loading data into Stata
-  - file: units/unit05/README
+  - file: units/unit05_data_inspection/README
     title: Unit 5 - Data inspection  
-  - file: units/unit06/README
+  - file: units/unit06_dataset_building/README
     title: Unit 6 - Building your data set
-  - file: units/unit07/README
+  - file: units/unit07_data_wrangling/README
     title: Unit 7 - Data wrangling
-  - file: units/unit08/README
+  - file: units/unit08_model_estimation/README
     title: Unit 8 - Model estimation    
-  - file: units/unit09/README
+  - file: units/unit09_output/README
     title: Unit 9 - Output presentation      
