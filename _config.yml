@@ -1,0 +1,13 @@
+title: "Stata Crash Course"
+author: "Tom Günther"
+
+only_build_toc_files: true
+
+launch_buttons:
+  thebe: true
+
+execute:
+  execute_notebooks: "off"
+
+html:
+  baseurl: /stata-crashcourse
