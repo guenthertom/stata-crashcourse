@@ -8,33 +8,20 @@ I developed this course as part of an international teaching collaboration betwe
 
 ## 🔍 What You'll Learn
 
-- ✅ Basic Stata syntax and command structure
-- ✅ Navigating Stata's documentation
-- ✅ Organizing a reproducable workflow
-- ✅ Data import and manipulation
-- ✅ Model estimation
-- ✅ Output presentation
+- Basic Stata syntax and command structure
+- Navigating Stata's documentation
+- Organizing a reproducable workflow
+- Data import and manipulation
+- Model estimation
+- Output presentation
   
-## 📁 Repository Structure
-- `README.md` – Overview and instructions
-- `LICENSE` – Custom copyright notice
-- `syllabus.md` – High-level overview of course topics
-- `exercises/` – `.do` files for key topics:
-  - `data-management.do`
-  - `model-estimation.do`
-- `slides-outline.md` – Text summary of the slide content (no screenshots)
-- `slides-links.md` - (Only shared privately upon request) 
-- `video-links.md` – (Only shared privately upon request)
+## How You'll Learn
 
-## 🎥 Videos and Slides
+The course is divided into nine units. Each unit works with a combination of slides, videos and exercises.
 
-While the full video lectures and slide decks are not publicly included in this repository, they are available to:
-- Students interested in learning Stata independently
-- Recruiters and hiring managers (upon request)
-
-📬 If you are looking to access the full course materials, please [email me](mailto:guenthertom90@gmail.com) or request access via [this form](https://your-form-link.com). Access is typically granted within 2–5 business days.
-
-This course was originally developed as part of my teaching duties at [University Name] and is now maintained as an open learning resource under my own authorship.
+- 📄 Slides serve as the script. You should read them before watching the video.
+- ▶️ Videos are hosted on YouTube.
+- 🧪 Exercises contain empty space for coding. To get the full hand-on experience, I recommend to do the exercises in Stata though.
   
 ## ⚠️ Disclaimer
 
@@ -46,3 +33,4 @@ This course is independently developed and is not affiliated with or endorsed by
 
 This material is provided for educational viewing only.  
 You may not copy, modify, redistribute, or reuse any part of it without written permission.
+This course was originally developed as part of my teaching duties at Freie Universität Berlin and is now maintained as an open learning resource under my own authorship.
