@@ -6,7 +6,12 @@ This unit introduces the Stata interface and demonstrates how to run your very f
 
 Read the slides before watching the video.
 
-<iframe src="/stata-crashcourse/_static/slides/unit01_slides.pdf" width="100%" height="600px"></iframe>
+<iframe
+  src="/stata-crashcourse/_static/slides/unit01_slides.pdf"
+  width="100%"
+  height="600px"
+  style="border: none;">
+</iframe>
 
 ## ▶️ Video
 
