@@ -1,0 +1,13 @@
+id,age,income,city
+1,23.0,32000.0,Berlin
+2,35.0,58000.0,Munich
+3,29.0,,Hamburg
+4,,45000.0,Cologne
+5,41.0,72000.0,Frankfurt
+6,33.0,51000.0,Stuttgart
+7,27.0,39000.0,Dresden
+8,30.0,,Leipzig
+9,22.0,31000.0,Bremen
+10,28.0,47000.0,Hanover
+11,36.0,60000.0,Nuremberg
+12,,52000.0,Bonn
