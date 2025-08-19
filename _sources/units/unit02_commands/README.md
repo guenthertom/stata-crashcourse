@@ -48,7 +48,7 @@ In D, we do not specify an if-condition and *make* does not specify observation 
 
 <span style="display:block; margin-top:0.5em;"></span>
 
-**Q2: According to the help file, which of the following is the minimal abbreviation for the command `summarize`?** <br>
+**Q2: According to the help file, which of the following is the minimal abbreviation for `summarize`?** <br>
 A) s <br>
 B) su <br>
 C) sum <br>

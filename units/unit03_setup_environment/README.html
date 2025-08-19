@@ -334,7 +334,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -358,16 +358,155 @@ document.write(`
 <p>👉 Click the image to open the video on YouTube. Right-click to open the video in a new tab.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=82-JGNVnJMU"><img alt="Watch the video" src="https://img.youtube.com/vi/82-JGNVnJMU/0.jpg" /></a></p>
 </section>
-<section id="exercises-apply-what-youve-learned">
-<h2>🧪 Exercises: Apply What You’ve Learned<a class="headerlink" href="#exercises-apply-what-youve-learned" title="Link to this heading">#</a></h2>
-<p>Once you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.</p>
-<p>Exercises:</p>
+<section id="exercises">
+<h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
+<h5>Exercise 1 – Writing your first do-file</h5>
 <ul class="simple">
-<li><p>pathing</p></li>
-<li><p>commenting</p></li>
-<li><p>Writing you own header template.</p></li>
-<li><p>do-file nesting</p></li>
+<li><p>Open the do-file editor with <code class="docutils literal notranslate"><span class="pre">doedit</span></code></p></li>
+<li><p>Write a simple do-file that loads the <em>auto.dta</em> and displays the <strong>mean</strong> of <em>price</em> and <em>weight</em></p></li>
 </ul>
+<textarea id="ex1" rows="6"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>Use the same commands that you would use in the Command window. You can calculate the mean of variables with <code class="docutils literal notranslate"><span class="pre">summarize</span></code>.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<p>Write in Command window: <br></p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">doedit</span>
+</pre></div>
+</div>
+<p>Write in do-file</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">webuse</span> auto,<span class="k"> clear</span> 
+<span class="k">summarize</span> price weight
+</pre></div>
+</div>
+</details>
+<h5>Exercise 2 – Commenting your code</h5>
+<ul class="simple">
+<li><p>Extend your do-file by adding comments explaining each step.</p></li>
+<li><p>Run the commented do-file. What do you observe?</p></li>
+</ul>
+<textarea id="ex2" rows="6"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>Use <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code> or <code class="docutils literal notranslate"><span class="pre">*/</span> <span class="pre">multi-line</span> <span class="pre">comment</span> <span class="pre">*/</span></code> to create comments.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">webuse</span> auto,<span class="k"> clear</span> <span class="c1">// Load auto.dta, overwriting currently stored data</span>
+
+<span class="c1">* Calculate the mean of important variables</span>
+<span class="k">summarize</span> price weight 
+</pre></div>
+</div>
+<p>Comments are not shown in the output. The output looks the same as before.</p>
+</details>
+<h5>Exercise 3 – Working with delimiters</h5>
+<p>Inspect the following Stata code which summarizes multiple variables from the <em>auto.dta</em>:</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">webuse</span> auto,<span class="k"> clear</span>
+<span class="k">summarize</span> price <span class="cs">///</span>
+		  make  <span class="cs">///</span>
+		  weight
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Does the code work? Explain your answer.</p></li>
+<li><p>Use the delimiter <code class="docutils literal notranslate"><span class="pre">;</span></code> to alter the code snippet.</p></li>
+</ul>
+<textarea id="ex3" rows="6"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can choose a delimiter with the command <code class="docutils literal notranslate"><span class="pre">#delimit</span></code>.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<p>The code works as <code class="docutils literal notranslate"><span class="pre">///</span></code> indicates that <code class="docutils literal notranslate"><span class="pre">summarize</span></code> spans multiple lines. <br></p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span>#delimit ;
+<span class="k">summarize</span> price 
+	make
+	weight 
+	;
+</pre></div>
+</div>
+<p>To return to the default delimiter, type <code class="docutils literal notranslate"><span class="pre">#delimit</span> <span class="pre">cr</span></code></p>
+</details>
+<h5>Exercise 4 – Pathing</h5>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">globals</span></code> to store paths to your data, working directory, do-files, output folder, etc. <br>
+By doing so, you can just call the correct global instead of repeatedly copy-pasting long directory paths.</p>
+<ul class="simple">
+<li><p>Create a new folder on your desktop called <em>stata_crashcourse</em>.</p></li>
+<li><p>In the new folder, create three subfolders: <em>do</em>, <em>output</em>, <em>data</em>.</p></li>
+<li><p>Open a new do-file and create a <code class="docutils literal notranslate"><span class="pre">global</span></code> <em>wd</em> which contains the path to your folder <em>stata_crashcourse</em>.</p></li>
+<li><p>Create two additional <code class="docutils literal notranslate"><span class="pre">globals</span></code> <em>do</em> and <em>output</em> which point to your local folders of the same name.</p></li>
+<li><p>Change the working directory to the folder <em>stata_crashcourse</em>.</p></li>
+<li><p>Issue the command <code class="docutils literal notranslate"><span class="pre">macro</span> <span class="pre">list</span></code> and run the do-file. What do you observe?</p></li>
+</ul>
+<textarea id="ex4" rows="10"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>When creating a <code class="docutils literal notranslate"><span class="pre">global</span></code>, put the file name in “”. You can call an existing global with <code class="docutils literal notranslate"><span class="pre">${global_name}</span></code>. <br>
+You can add characters to an existing global.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">doedit</span>
+<span class="k">global</span> wd <span class="s">&quot;C:/.../Desktop/stata_crashcourse&quot;</span>
+<span class="k">global do</span> <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">/do&quot;</span>
+<span class="k">global</span> output <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">/output&quot;</span>
+
+<span class="k">cd</span> <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">&quot;</span>
+
+<span class="k">macro list</span> 
+</pre></div>
+</div>
+<p>The command <code class="docutils literal notranslate"><span class="pre">macro</span> <span class="pre">list</span></code> shows the content of all globals and locals. If done correctly, you should find your stored paths here. Depending on your platform, you could also use backslashes <code class="docutils literal notranslate"><span class="pre">\</span></code> in your paths. Forward slashes <code class="docutils literal notranslate"><span class="pre">/</span></code> work cross-platform though.</p>
+</details>
 </section>
 </section>
 
@@ -437,7 +576,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
   </nav></div>
 

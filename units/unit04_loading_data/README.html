@@ -334,7 +334,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -348,7 +348,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="unit-4-loading-data-into-stata">
 <h1>Unit 4 – Loading data into Stata<a class="headerlink" href="#unit-4-loading-data-into-stata" title="Link to this heading">#</a></h1>
-<p>This unit teaches you how to load, import, and save data in Stata, covering native .dta files as well as external formats like Excel and .csv</p>
+<p>This unit teaches you how to load, import, and save data in Stata, covering native .dta files as well as external formats like .xlsx and .csv</p>
 <section id="slides">
 <h2>📄 Slides<a class="headerlink" href="#slides" title="Link to this heading">#</a></h2>
 <p>Read the <a class="reference download internal" download="" href="../../_downloads/ea07134e2e7585cf97b6b70ca283bd7b/unit04_slides.pdf"><span class="xref download myst">slides for this unit</span></a> before watching the video.</p>
@@ -358,31 +358,160 @@ document.write(`
 <p>👉 Click the image to open the video on YouTube. Right-click to open the video in a new tab.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=eAAeOvozHrY"><img alt="Watch the video" src="https://img.youtube.com/vi/eAAeOvozHrY/0.jpg" /></a></p>
 </section>
-<section id="exercises-apply-what-youve-learned">
-<h2>🧪 Exercises: Apply What You’ve Learned<a class="headerlink" href="#exercises-apply-what-youve-learned" title="Link to this heading">#</a></h2>
-<p>Once you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.</p>
-<p>Exercises:</p>
+<section id="exercises">
+<h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h5>Exercise 1 – Opening and exploring data</h5>
+<p>Inspect the following Stata code which uses the built-in <em>auto.dta</em>:</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="c1">// Load data and create a new variable</span>
+<span class="k">webuse</span> auto
+<span class="k">gen</span> price_to_weight_ratio = price <span class="o">/</span> weight
+
+<span class="c1">// Load the data again, to create a different variable</span>
+<span class="k">webuse</span> auto
+<span class="k">gen</span> mpg_to_weight_ratio = mpg <span class="o">/</span> weight
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Load a built-in data set (auto)</p>
-<ul>
-<li><p>Do we need the clear option here?</p></li>
+<li><p>Does the code work? Explain your answer.</p></li>
 </ul>
-</li>
-<li><p>Load a data set from a website</p></li>
-<li><p>Load a data set from your source path</p></li>
-<li><p>Load a data set from the federal employment agency into Stata</p>
-<ul>
-<li><p>What do you observe!</p></li>
+<textarea id="ex1" rows="3"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>Consult the <em>help</em> file of the command <code class="docutils literal notranslate"><span class="pre">use</span></code>.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<p>The code throws an error as we do not clear the memory of Stata when loading the data again. <br>
+Stata will not overwrite currently stored data by itself.</p>
+</details>
+<h5>Exercise 2 – Importing Excel data</h5>
+<ul class="simple">
+<li><p>Download our <a class="reference download internal" download="" href="../../_downloads/fef0ad0d7778c156c8b2cfa62cc6f40d/survey.xlsx"><span class="xref download myst">survey.xlsx</span></a> and safe it into your working folder.</p></li>
+<li><p>Set the working directory to your working folder.</p></li>
+<li><p>Import the spreadsheet data with the command <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">excel</span></code>. Try to import variable names as well.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Browse</span></code> the data.</p></li>
 </ul>
-</li>
-<li><p>Prepare the data correctly for upload, save as xlsx and csv</p></li>
-<li><p>Load the prepared data</p>
-<ul>
-<li><p>What happend to missing values?</p></li>
+<textarea id="ex2" rows="8"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can set your working directory with <code class="docutils literal notranslate"><span class="pre">cd</span></code> and your directory path. <br>
+Use a suitable <strong>option</strong> to import the variable names from the spreadsheet.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> wd <span class="s">&quot;C:/.../Desktop/stata_crashcourse&quot;</span>
+<span class="k">cd</span> <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">&quot;</span>
+import excel using <span class="s">&quot;survey.xlsx&quot;</span>, firstrow<span class="k"> clear</span>
+<span class="k">browse</span>
+</pre></div>
+</div>
+<p>Without the option <code class="docutils literal notranslate"><span class="pre">firstrow</span></code> variable names will be generic capital letters (A, B, C, …).</p>
+</details>
+<h5>Exercise 3 – Importing .csv data</h5>
+<ul class="simple">
+<li><p>Download our <a class="reference download internal" download="" href="../../_downloads/ca75955ff45307caa79e3898580eaab0/survey.csv"><span class="xref download myst">survey.csv</span></a> and safe it into your working folder.</p></li>
+<li><p>Set the working directory to your working folder.</p></li>
+<li><p>Import the data with the command <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">delimited</span></code>. Try to import variable names as well.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Browse</span></code> the data.</p></li>
 </ul>
-</li>
+<textarea id="ex3" rows="8"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can set your working directory with <code class="docutils literal notranslate"><span class="pre">cd</span></code> and your directory path. <br>
+You may want to open the .csv file first to check that it uses standard delimiters. <br>
+You can specify the delimiter in the <em>options</em> of <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">delimited</span></code>. <br>
+If you use the same do-file as before, do not forget to <code class="docutils literal notranslate"><span class="pre">clear</span></code>.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> wd <span class="s">&quot;C:/.../Desktop/stata_crashcourse&quot;</span>
+<span class="k">cd</span> <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">&quot;</span>
+import delimited using <span class="s">&quot;survey.csv&quot;</span>,<span class="k"> clear</span>
+<span class="k">browse</span>
+</pre></div>
+</div>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">delimited</span></code> will check the first entries of any .csv file for variable names.</p>
+</details>
+<h5>Exercise 4 – Importing messy data</h5>
+<p>Not all data is nicely formatted after your import. We prepared a little toy data set to show you what you may have to deal with in the future.</p>
+<ul class="simple">
+<li><p>Download our <a class="reference download internal" download="" href="../../_downloads/2e6c97c25b12032d6c6fe62d73d8a90b/messy.xlsx"><span class="xref download myst">messy.xlsx</span></a> and safe it into your working folder.</p></li>
+<li><p>Set the working directory to your working folder.</p></li>
+<li><p>Import the data and inspect it. What do you observe?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rename</span></code> variables if necessary.</p></li>
+<li><p>Try to use <code class="docutils literal notranslate"><span class="pre">destring</span></code> to fix the wrongly imported variable <em>score</em>.</p></li>
 </ul>
-</section>
+<textarea id="ex4" rows="10"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can set your working directory with <code class="docutils literal notranslate"><span class="pre">cd</span></code> and your directory path. <br>
+If you use the same do-file as before, do not forget to <code class="docutils literal notranslate"><span class="pre">clear</span></code>. <br>
+In Stata, variable names may not start with numbers. <br>
+Inspect the data anytime you apply the command <code class="docutils literal notranslate"><span class="pre">destring</span></code>.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> wd <span class="s">&quot;C:/.../Desktop/stata_crashcourse&quot;</span>
+<span class="k">cd</span> <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">&quot;</span>
+import excel using <span class="s">&quot;messy.xlsx&quot;</span>, firstrow<span class="k"> clear</span>
+<span class="k">browse</span>
+</pre></div>
+</div>
+<p>Stata manages to correct some non-applicable variable names by itself. It stores the original names as a <em>label</em>. <br>
+All variables are imported as <em>strings</em>.</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">destring score</span>,<span class="k"> replace</span> <span class="c1">// does not work</span>
+<span class="k">destring score</span>,<span class="k"> gen</span>(score_num) <span class="c1">// does not work</span>
+<span class="k">destring score</span>,<span class="k"> gen</span>(score_num) force <span class="c1">// Creates many missings</span>
+<span class="k">destring score</span>,<span class="k"> gen</span>(score_num) dpcomma  
+</pre></div>
+</div>
+<p>We have to apply the <em>option</em> <code class="docutils literal notranslate"><span class="pre">dpcomma</span></code> to tell Stata to interpret commas as decimal points. Otherwise, <code class="docutils literal notranslate"><span class="pre">destring</span></code> will not execute or delete many of our observations. <br>
+You have to be extra careful when using this command.</p>
+</details></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -451,7 +580,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
   </nav></div>
 
