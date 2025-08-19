@@ -334,7 +334,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -351,23 +351,159 @@ document.write(`
 <p>This unit introduces the Stata interface and demonstrates how to run your very first commands. You’ll see how Stata combines the flexibility of spreadsheet tools with the power of syntax-based workflows.</p>
 <section id="slides">
 <h2>📄 Slides<a class="headerlink" href="#slides" title="Link to this heading">#</a></h2>
-<p>Read the <a class="reference internal" href="#unit02_slides.pdf"><span class="xref myst">slides for this unit</span></a> before watching the video.</p>
-<iframe
-  src="unit01_slides.pdf"
-  width="100%"
-  height="600px"
-  style="border: none;">
-</iframe>
+<p>Read the <a class="reference download internal" download="" href="../../_downloads/035c02209555af38e2af8f3f5a43f338/unit01_slides.pdf"><span class="xref download myst">slides for this unit</span></a> before watching the video.</p>
 </section>
 <section id="video">
 <h2>▶️ Video<a class="headerlink" href="#video" title="Link to this heading">#</a></h2>
 <p>👉 Click the image to open the video on YouTube. Right-click to open the video in a new tab.</p>
 <p><a class="reference external" href="https://youtu.be/N7X-ot2JS8U"><img alt="Watch the video" src="https://img.youtube.com/vi/N7X-ot2JS8U/0.jpg" /></a></p>
 </section>
-<section id="exercises-apply-what-youve-learned">
-<h2>🧪 Exercises: Apply What You’ve Learned<a class="headerlink" href="#exercises-apply-what-youve-learned" title="Link to this heading">#</a></h2>
-<p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.</p>
-</section>
+<section id="exercises">
+<h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
+<h5>Exercise 1 – Opening and exploring data</h5>
+<ul class="simple">
+<li><p>Load the example dataset <em>auto</em>.</p></li>
+<li><p>Inspect the first 10 rows.</p></li>
+<li><p>List three variables you observe in the dataset.</p></li>
+</ul>
+<textarea id="ex1-1" rows="4"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>Use the command <code class="docutils literal notranslate"><span class="pre">webuse</span></code> to load the data.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">webuse</span> auto,<span class="k"> clear</span>
+<span class="k">list in</span> <span class="m">1</span><span class="o">/</span><span class="m">10</span>
+<span class="k">list</span> make price mpg
+</pre></div>
+</div>
+</details>
+<h5>Exercise 2 – Understanding how Stata stores the data</h5>
+<ul class="simple">
+<li><p>Summarize the variable <em>price</em>. Sort the data by <em>weight</em>. Summarize <em>price</em> again. What do you observe?</p></li>
+</ul>
+<textarea id="ex2-1" rows="6"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>Check out the <em>help</em> file for summarize.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">summarize</span> price
+<span class="k">sort</span> weight
+<span class="k">summarize</span> price
+</pre></div>
+</div>
+<p>The output is the same. Summarize uses all non-missing information on price. Sorting does not matter.</p>
+</details>
+<p><span style="display:block; margin-top:0.5em;"></span></p>
+<ul class="simple">
+<li><p>Display the variable <em>price</em>. Sort the data by <em>weight</em>. Display <em>price</em> again. What do you observe?</p></li>
+</ul>
+<textarea id="ex2-2" rows="6"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You may abbreviate the command <code class="docutils literal notranslate"><span class="pre">display</span></code> with <code class="docutils literal notranslate"><span class="pre">di</span></code>.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">di</span> price
+<span class="k">sort</span> weight
+<span class="k">di</span> price
+</pre></div>
+</div>
+<p>The output is different. Display only shows the content of price for the first observation.
+As Stata stores data in an ordered table, sorting becomes relevant here.</p>
+</details>
+<h5>Exercise 3 – Navigating Stata's interface</h5>
+<ul class="simple">
+<li><p>Select the variables <em>mpg</em> and <em>make</em> in the Variables window. Use the Properties window to compare their storage types</p></li>
+</ul>
+<textarea id="ex3-1" rows="3"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can select any variable in the Variables window by clicking on its name.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<p><em>mpg</em> is stored as an integer. <br>
+<em>make</em> is stored as a string.</p>
+</details>
+<p><span style="display:block; margin-top:0.5em;"></span></p>
+<ul class="simple">
+<li><p>Summarize the variable <em>foreign</em>. What type of variable is it?</p></li>
+<li><p>Repeat the command for the variable <em>headroom</em> by using the History window.</p></li>
+</ul>
+<textarea id="ex3-2" rows="4"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can repeat any command from the History window by clicking on it. You will have to change the variable passed to the command though.</p>
+</details>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">summarize</span> foreign
+<span class="k">summarize</span> headroom
+</pre></div>
+</div>
+<p><em>foreign</em> is a dummy variable.</p>
+</details></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,7 +572,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
   </nav></div>
 
