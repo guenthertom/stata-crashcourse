@@ -30,7 +30,7 @@ gen mpg_to_weight_ratio = mpg / weight
 
 ```
 
-- Does the code work? Explain your answer.
+- Does the code execute without throwing an error? Explain your answer.
 
 <textarea id="ex1" rows="3"
   style="width:100%;
@@ -84,7 +84,7 @@ Stata will not overwrite currently stored data by itself.
 <summary>💡 Hint</summary>
 
 You can set your working directory with `cd` and your directory path. <br>
-Use a suitable **option** to import the variable names from the spreadsheet.
+Use a suitable *option* to import the variable names from the spreadsheet.
 
 </details>
 
@@ -189,8 +189,7 @@ import excel using "messy.xlsx", firstrow clear
 browse
 ```
 
-Stata manages to correct some non-applicable variable names by itself. It stores the original names as a *label*. <br>
-All variables are imported as *strings*.
+Stata manages to correct some non-applicable variable names by itself. It stores the original names as a *label*. We do not need to use `rename` here. All variables are imported as *strings*.
 
 ```stata
 destring score, replace // does not work
@@ -199,7 +198,6 @@ destring score, gen(score_num) force // Creates many missings
 destring score, gen(score_num) dpcomma  
 ```
 
-We have to apply the *option* `dpcomma` to tell Stata to interpret commas as decimal points. Otherwise, `destring` will not execute or delete many of our observations. <br>
-You have to be extra careful when using this command.
+We have to apply the *option* `dpcomma` to tell Stata to interpret commas as decimal points. Otherwise, `destring` will not execute or delete many of our observations. You have to be extra careful when using this command.
 
 </details>

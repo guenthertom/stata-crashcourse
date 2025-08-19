@@ -90,6 +90,7 @@ webuse auto, clear // Load auto.dta, overwriting currently stored data
 * Calculate the mean of important variables
 summarize price weight 
  ```
+ 
  Comments are not shown in the output. The output looks the same as before.
 
 </details>
@@ -101,11 +102,11 @@ Inspect the following Stata code which summarizes multiple variables from the *a
 ```stata
 webuse auto, clear
 summarize price ///
-		  make  ///
-		  weight
+make  ///
+weight
 ```
 
-- Does the code work? Explain your answer.
+- Does the code execute without throwing an error? Explain your answer.
 - Use the delimiter `;` to alter the code snippet.
 
 <textarea id="ex3" rows="6"
@@ -136,9 +137,9 @@ The code works as `///` indicates that `summarize` spans multiple lines. <br>
 ```stata
 #delimit ;
 summarize price 
-	make
-	weight 
-	;
+make
+weight 
+;
 ```
 
 To return to the default delimiter, type `#delimit cr`
@@ -173,7 +174,8 @@ By doing so, you can just call the correct global instead of repeatedly copy-pas
 <details>
 <summary>💡 Hint</summary>
 
-When creating a `global`, put the file name in "". You can call an existing global with `${global_name}`. <br>
+When creating a `global`, put the file name in "". <br>
+You can call an existing global with `${global_name}`. <br>
 You can add characters to an existing global.  
 
 </details>

@@ -372,7 +372,7 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Does the code work? Explain your answer.</p></li>
+<li><p>Does the code execute without throwing an error? Explain your answer.</p></li>
 </ul>
 <textarea id="ex1" rows="3"
   style="width:100%;
@@ -417,7 +417,7 @@ Stata will not overwrite currently stored data by itself.</p>
 <details>
 <summary>💡 Hint</summary>
 <p>You can set your working directory with <code class="docutils literal notranslate"><span class="pre">cd</span></code> and your directory path. <br>
-Use a suitable <strong>option</strong> to import the variable names from the spreadsheet.</p>
+Use a suitable <em>option</em> to import the variable names from the spreadsheet.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -501,16 +501,14 @@ import excel using <span class="s">&quot;messy.xlsx&quot;</span>, firstrow<span 
 <span class="k">browse</span>
 </pre></div>
 </div>
-<p>Stata manages to correct some non-applicable variable names by itself. It stores the original names as a <em>label</em>. <br>
-All variables are imported as <em>strings</em>.</p>
+<p>Stata manages to correct some non-applicable variable names by itself. It stores the original names as a <em>label</em>. We do not need to use <code class="docutils literal notranslate"><span class="pre">rename</span></code> here. All variables are imported as <em>strings</em>.</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">destring score</span>,<span class="k"> replace</span> <span class="c1">// does not work</span>
 <span class="k">destring score</span>,<span class="k"> gen</span>(score_num) <span class="c1">// does not work</span>
 <span class="k">destring score</span>,<span class="k"> gen</span>(score_num) force <span class="c1">// Creates many missings</span>
 <span class="k">destring score</span>,<span class="k"> gen</span>(score_num) dpcomma  
 </pre></div>
 </div>
-<p>We have to apply the <em>option</em> <code class="docutils literal notranslate"><span class="pre">dpcomma</span></code> to tell Stata to interpret commas as decimal points. Otherwise, <code class="docutils literal notranslate"><span class="pre">destring</span></code> will not execute or delete many of our observations. <br>
-You have to be extra careful when using this command.</p>
+<p>We have to apply the <em>option</em> <code class="docutils literal notranslate"><span class="pre">dpcomma</span></code> to tell Stata to interpret commas as decimal points. Otherwise, <code class="docutils literal notranslate"><span class="pre">destring</span></code> will not execute or delete many of our observations. You have to be extra careful when using this command.</p>
 </details></section>
 </section>
 

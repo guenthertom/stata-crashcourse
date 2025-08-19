@@ -429,12 +429,12 @@ document.write(`
 <p>Inspect the following Stata code which summarizes multiple variables from the <em>auto.dta</em>:</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">webuse</span> auto,<span class="k"> clear</span>
 <span class="k">summarize</span> price <span class="cs">///</span>
-		  make  <span class="cs">///</span>
-		  weight
+make  <span class="cs">///</span>
+weight
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Does the code work? Explain your answer.</p></li>
+<li><p>Does the code execute without throwing an error? Explain your answer.</p></li>
 <li><p>Use the delimiter <code class="docutils literal notranslate"><span class="pre">;</span></code> to alter the code snippet.</p></li>
 </ul>
 <textarea id="ex3" rows="6"
@@ -458,9 +458,9 @@ document.write(`
 <p>The code works as <code class="docutils literal notranslate"><span class="pre">///</span></code> indicates that <code class="docutils literal notranslate"><span class="pre">summarize</span></code> spans multiple lines. <br></p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span>#delimit ;
 <span class="k">summarize</span> price 
-	make
-	weight 
-	;
+make
+weight 
+;
 </pre></div>
 </div>
 <p>To return to the default delimiter, type <code class="docutils literal notranslate"><span class="pre">#delimit</span> <span class="pre">cr</span></code></p>
@@ -490,7 +490,8 @@ By doing so, you can just call the correct global instead of repeatedly copy-pas
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>When creating a <code class="docutils literal notranslate"><span class="pre">global</span></code>, put the file name in “”. You can call an existing global with <code class="docutils literal notranslate"><span class="pre">${global_name}</span></code>. <br>
+<p>When creating a <code class="docutils literal notranslate"><span class="pre">global</span></code>, put the file name in “”. <br>
+You can call an existing global with <code class="docutils literal notranslate"><span class="pre">${global_name}</span></code>. <br>
 You can add characters to an existing global.</p>
 </details>
 <details>
