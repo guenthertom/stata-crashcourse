@@ -172,3 +172,6 @@ tab rep78, gen(rep_dummy)
  ```
 Using the option `generate` creates five dummy variables *rep_dummy1*-*rep_dummy5*.
 </details>
+
+<span style="display:block; margin-top:4em;"></span>
+

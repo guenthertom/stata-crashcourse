@@ -14,6 +14,8 @@ Read the [slides for this unit](unit04_slides.pdf) before watching the video.
 
 ## 🧪 Exercises
 
+When you've completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.
+
 <h5>Exercise 1 – Opening and exploring data</h5>
 
 Inspect the following Stata code which uses the built-in *auto.dta*:
@@ -201,3 +203,5 @@ destring score, gen(score_num) dpcomma
 We have to apply the *option* `dpcomma` to tell Stata to interpret commas as decimal points. Otherwise, `destring` will not execute or delete many of our observations. You have to be extra careful when using this command.
 
 </details>
+
+<span style="display:block; margin-top:4em;"></span>
