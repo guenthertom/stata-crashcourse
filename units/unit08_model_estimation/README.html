@@ -334,7 +334,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -358,9 +358,253 @@ document.write(`
 <p>👉 Click the image to open the video on YouTube. Right-click to open the video in a new tab.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=wBTNRrqwBA4"><img alt="Watch the video" src="https://img.youtube.com/vi/wBTNRrqwBA4/0.jpg" /></a></p>
 </section>
-<section id="exercises-apply-what-youve-learned">
-<h2>🧪 Exercises: Apply What You’ve Learned<a class="headerlink" href="#exercises-apply-what-youve-learned" title="Link to this heading">#</a></h2>
-<p>Once you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.</p>
+<section id="exercises">
+<h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
+<p><span style="display:block; margin-top:0.5em;"></span></p>
+<p>We will use <strong>hs0</strong> data from UCLA for the following exercises.</p>
+<h5>Exercise 1 – Ordinary Least Squares </h5>
+<ul class="simple">
+<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em>. Interpret the estimated coefficient.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">i.gender</span></code> to the model. Interpret the estimated coefficient.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">c.write#i.gender</span></code> to the model. Interpret the estimated coefficient.</p></li>
+</ul>
+<textarea id="ex1" rows="12"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p><em>Math</em> is your dependent (left-hand side) variable. <br>
+The qualifier <code class="docutils literal notranslate"><span class="pre">c.</span></code> tells Stata that a variable is continuous, <code class="docutils literal notranslate"><span class="pre">i.</span></code> is for categorical variables.
+By combining variables with <code class="docutils literal notranslate"><span class="pre">#</span></code> you include an interaction between them into the model. <br></p>
+</details>   
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="s">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;</span>,<span class="k"> clear</span>
+<span class="k">regress</span> math c<span class="m">.</span>write
+</pre></div>
+</div>
+<p>The coefficient on <em>write</em> shows the expected change in <em>math</em> scores for a one-point increase in writing. E.g., a 10-point increase in <em>write</em> scores is associated with a 6.1-point increase in math scores.</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">regress</span> math c<span class="m">.</span>write i<span class="m">.</span>gender
+</pre></div>
+</div>
+<p>The coefficient on <em>gender</em> compares females to males at the same <em>write</em> score. A negative estimate means that, controlling for writing, females have lower average <em>math</em> scores than males.</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">regress</span> math c<span class="m">.</span>write i<span class="m">.</span>gender c<span class="m">.</span>write#i<span class="m">.</span>gender
+</pre></div>
+</div>
+<p>The interaction term indicates if the slope of <em>write</em> differs by <em>gender</em>. For women, the association between <em>math</em> and <em>write</em> scores is stronger than for men. This difference is not significant.</p>
+</details>
+<h5>Exercise 2 – Predictions & residuals </h5>
+<ul class="simple">
+<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Predict</span></code> fitted values <em>math_hat</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Predict</span></code> residuals <em>resid_hat</em>.</p></li>
+<li><p>Plot residuals vs. fitted values.</p></li>
+<li><p>Provide a <strong>QQ-plot</strong> for the standardized residuals.</p></li>
+</ul>
+<textarea id="ex2" rows="8"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">predict</span></code> to calculate residuals and standardized residuals. <br>
+You can also calculate residuals by hand after predicting the fitted values. <br>
+Use <code class="docutils literal notranslate"><span class="pre">scatter</span></code> to plot residuals (y-axis) against fitted values (x-axis). <br>
+Use <code class="docutils literal notranslate"><span class="pre">qnorm</span> <span class="pre">[residuals_standardized]</span></code> for the QQ-plot.</p>
+</details> 
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="s">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;</span>,<span class="k"> clear</span>
+<span class="k">regress</span> math c<span class="m">.</span>write i<span class="m">.</span>gender
+<span class="k">predict</span> math_hat
+<span class="k">predict</span> resid_hat, residuals
+<span class="k">scatter</span> resid_hat math_hat, yline(<span class="m">0</span>, lcol(red))
+<span class="k">predict</span> resid_hat_std, rstandard
+<span class="k">qnorm</span> resid_hat_std
+</pre></div>
+</div>
+</details>
+<h5>Exercise 3 – Testing hypotheses </h5>
+<ul class="simple">
+<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and *gender.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Test</span></code> if the coefficient on <em>write</em> is equal to 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Test</span></code> if <em>write</em> and <em>gender</em> are jointly significant.</p></li>
+</ul>
+<textarea id="ex3" rows="6"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>Consult the <em>help</em> file for <code class="docutils literal notranslate"><span class="pre">test</span></code>. You have to pass the coefficient names to <code class="docutils literal notranslate"><span class="pre">test</span></code>. You can find the names of coefficients in the regression output.</p>
+</details> 
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="s">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;</span>,<span class="k"> clear</span>
+<span class="k">regress</span> math c<span class="m">.</span>write i<span class="m">.</span>gender, coeflegend
+<span class="k">test</span> write = <span class="m">1</span>
+<span class="k">test</span> write <span class="m">2.</span>gender
+</pre></div>
+</div>
+</details>
+<h5>Exercise 4 – Using `margins` </h5>
+<ul class="simple">
+<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">margins</span> <span class="pre">i.gender</span></code> to compare predicted <em>math</em> scores across <em>gender</em>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">predict</span></code> to calculate fitted values. <code class="docutils literal notranslate"><span class="pre">Summarize</span></code> fitted values <code class="docutils literal notranslate"><span class="pre">by</span></code> <em>gender</em>. Compare your results.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">margins,</span> <span class="pre">dydx(write)</span></code> to interpret marginal effects.</p></li>
+</ul>
+<textarea id="ex4" rows="10"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="s">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;</span>,<span class="k"> clear</span>
+<span class="k">regress</span> math c<span class="m">.</span>write i<span class="m">.</span>gender
+margins gender
+<span class="k">predict</span> math_hat 
+<span class="k">bys</span> gender:<span class="k"> sum</span> math_hat
+</pre></div>
+</div>
+<p>Calculated means are different. <br>
+<code class="docutils literal notranslate"><span class="pre">margins</span> <span class="pre">female</span></code> reports adjusted means: it predicts <em>math</em> for each observation twice (as if male and as if female), holding each observation’s own <em>write</em> value fixed, then averages. So groups are compared with the same distribution of controls. <br>
+Using <code class="docutils literal notranslate"><span class="pre">predict</span></code> and <code class="docutils literal notranslate"><span class="pre">bys</span> <span class="pre">gender:</span> <span class="pre">summarize</span></code> averages fitted values within each group’s actual covariate distribution, so differences in <em>write</em> across groups affect the means.</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span>margins,<span class="k"> dydx</span>(write)
+</pre></div>
+</div>
+<p>For linear models, this is just the estimated coefficient. This will become especially useful when estimating non-linear models, where marginal effects are not equal to coefficients.</p>
+</details>
+<h5>Exercise 5 – Non-linear models </h5>
+<ul class="simple">
+<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p>Create a dummy variable <em>high_math</em> which equals 1 for observations with a <em>math</em> score over 60, and 0 if <em>math</em> is 60 or lower.</p></li>
+<li><p>Estimate a logistic regression of <em>high_math</em> on <em>write</em> and <em>gender</em>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">margins,</span> <span class="pre">dydx()</span></code> to calculate average marginal effects.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">margins,</span> <span class="pre">at(write</span> <span class="pre">=</span> <span class="pre">(40</span> <span class="pre">50</span> <span class="pre">60))</span></code> to predict probabilities of scoring high on <em>math</em> for different <em>write</em> scores.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">marginsplot</span></code> to plot predicted probabilities across the empirical distribution of <em>write</em> scores.</p></li>
+</ul>
+<textarea id="ex5" rows="18"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You need to <code class="docutils literal notranslate"><span class="pre">generate</span></code> a new variable. Use a suitable <em>if</em>-condition and do not forget to exclude <code class="docutils literal notranslate"><span class="pre">missing()</span></code>s. <br>
+Use <code class="docutils literal notranslate"><span class="pre">logit</span></code> to estimate a logistic regression. <br>
+To span the empirical range of <em>write</em>, store <code class="docutils literal notranslate"><span class="pre">r(min)</span></code> and <code class="docutils literal notranslate"><span class="pre">r(max)</span></code> in <strong>locals</strong> after <code class="docutils literal notranslate"><span class="pre">summarize</span></code> and feed these to <code class="docutils literal notranslate"><span class="pre">margins</span></code> with the option <code class="docutils literal notranslate"><span class="pre">at(write=(local_min(1)local_max))</span></code>. <br>
+When calling a local, enclose its name in backticks and apostrophes: `local’.</p>
+</details> 
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="s">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;</span>,<span class="k"> clear</span>
+<span class="k">gen</span> high_math = <span class="m">1</span><span class="k"> if</span> math <span class="o">&gt;</span> <span class="m">60</span> <span class="o">&amp;</span> <span class="o">!</span><span class="nf">missing</span>(math)
+<span class="k">replace</span> high_math = <span class="m">0</span><span class="k"> if</span> math <span class="o">&lt;=</span> <span class="m">60</span>
+<span class="k">logit</span> high_math c<span class="m">.</span>write i<span class="m">.</span>gender 
+margins,<span class="k"> dydx</span>(write gender)
+</pre></div>
+</div>
+<p>The average marginal effect for <em>write</em> gives the change in the probability of being above 60 in <em>math</em> for a one-point increase in the <em>write</em> score, keeping <em>gender</em> constant.</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span>margins, at(write = (<span class="m">40</span> <span class="m">50</span> <span class="m">60</span>))
+</pre></div>
+</div>
+<p>The predicted probability (no marginal effects here!) of scoring high on <em>math</em> increases in the <em>write</em> score.</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">summarize</span> write
+<span class="k">local</span> write_min = <span class="nf">r</span>(min)
+<span class="k">local</span> write_max = <span class="nf">r</span>(max)
+margins, at(write = (<span class="nv">`write_min&#39;</span>(<span class="m">1</span>)<span class="nv">`write_max&#39;</span>))
+marginsplot
+</pre></div>
+</div>
+</details>
+<h5>Exercise 6 – Quiz </h5>
+<p>Answer the following Single-Choice (i.e., there is always exactly one correct answer) questions on <strong>panel data models</strong>. <br></p>
+<p><span style="display:block; margin-top:0.5em;"></span></p>
+<p><strong>Q1: Which command tells Stata that the dataset is panel data, and what arguments does it require?</strong> <br>
+A) xtreg y x, fe <br>
+B) xtset id time <br>
+C) tsset id <br>
+D) xtdata id time</p>
+<details>
+<summary>✅ Solution</summary>
+<p><strong>Correct answer: B</strong> <br>
+<code class="docutils literal notranslate"><span class="pre">xtset</span></code> needs a panel dimension, i.e., the identifier for units of observation which are sampled more than once. A time dimension is optional. <br>
+<code class="docutils literal notranslate"><span class="pre">xtreg</span></code> estimates panel data models after you <code class="docutils literal notranslate"><span class="pre">xtset</span></code> your data.</p>
+</details>
+<p><span style="display:block; margin-top:0.5em;"></span></p>
+<p><strong>Q2: What command is correct for estimating a fixed-effects model?</strong> <br>
+A) xtreg y x, fe <br>
+B) xtreg y x, re <br>
+C) xtreg y x, mle <br>
+D) xtreg y x, robust</p>
+<details>
+<summary>✅ Solution</summary>
+<p><strong>Correct answer: A</strong> <br>
+The option <code class="docutils literal notranslate"><span class="pre">re</span></code> estimates a <em>random effects</em> model. <br>
+The option <code class="docutils literal notranslate"><span class="pre">robust</span></code> provides robust standard errors.</p>
+</details>
+<p><span style="display:block; margin-top:0.5em;"></span></p>
+<p><strong>Q3: Suppose you have estimated a fixed-effects model with:</strong> <br></p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">xtreg</span> wage educ exp, fe
+</pre></div>
+</div>
+<p>Which of the following statements is true? <br>
+A) The effect of educ is identified only from variation <strong>within</strong> individuals over time.  <br>
+B) The effect of educ is identified from both <strong>between</strong> and <strong>within</strong> variation.  <br>
+C) In fixed effects models, standard errors are automatically cluster robust.  <br>
+D) The model cannot identify the effect of <em>exp</em> since work experience never changes over time.</p>
+<details>
+<summary>✅ Solution</summary>
+<p><strong>Correct answer: A</strong> <br>
+To estimate cluster robust standard errors, you need to specify the option <code class="docutils literal notranslate"><span class="pre">vce(cluster</span> <span class="pre">id)</span></code></p>
+</details>
+<p><span style="display:block; margin-top:4em;"></span></p>
 </section>
 </section>
 
@@ -430,7 +674,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
   </nav></div>
 

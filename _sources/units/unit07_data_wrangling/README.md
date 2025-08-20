@@ -14,7 +14,10 @@ Read the [slides for this unit](unit07_slides.pdf) before watching the video.
 
 ## 🧪 Exercises
 
-When you've completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata. <br>
+When you've completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.
+
+<span style="display:block; margin-top:0.5em;"></span>
+
 We will use **hs0** data from UCLA for the following exercises. 
 
 <h5>Exercise 1 – Transforming variables </h5>

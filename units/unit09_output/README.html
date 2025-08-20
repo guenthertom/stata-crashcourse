@@ -333,7 +333,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -357,9 +357,189 @@ document.write(`
 <p>👉 Click the image to open the video on YouTube. Right-click to open the video in a new tab.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=fBQJl2Ki6mc"><img alt="Watch the video" src="https://img.youtube.com/vi/fBQJl2Ki6mc/0.jpg" /></a></p>
 </section>
-<section id="exercises-apply-what-youve-learned">
-<h2>🧪 Exercises: Apply What You’ve Learned<a class="headerlink" href="#exercises-apply-what-youve-learned" title="Link to this heading">#</a></h2>
-<p>Once you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided GitHub prompt or, even better, solve the tasks in your Stata working environment directly.</p>
+<section id="exercises">
+<h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
+<p><span style="display:block; margin-top:0.5em;"></span></p>
+<p>We will use <strong>hs0</strong> data from UCLA for the following exercises.</p>
+<h5>Exercise 0 – Preparing your working environment</h5>
+<ul class="simple">
+<li><p>Setup a working directory.</p></li>
+<li><p>Create the following folders: log, output.</p></li>
+<li><p>Open a new do-file and specify your paths.</p></li>
+</ul>
+<textarea id="ex0" rows="6"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">doedit</span>
+<span class="k">global</span> wd <span class="s">&quot;C:/.../Desktop/stata_crashcourse&quot;</span>
+<span class="k">global log</span> <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">/log&quot;</span>
+<span class="k">global</span> output <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">/output&quot;</span>
+<span class="k">cd</span> <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">&quot;</span>
+</pre></div>
+</div>
+</details>
+<h5>Exercise 1 – Using log files </h5>
+<ul class="simple">
+<li><p>At the top of your do-file, ensure that any open log files are closed.</p></li>
+<li><p>Create a new <code class="docutils literal notranslate"><span class="pre">log</span></code> file “<strong>mylog.txt</strong>” <code class="docutils literal notranslate"><span class="pre">using</span></code> your log folder. Save it as a <code class="docutils literal notranslate"><span class="pre">text</span></code> file. <code class="docutils literal notranslate"><span class="pre">Name</span></code> it <em>logout</em>.</p></li>
+<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p>Turn the log file off using <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">off</span> <span class="pre">logout</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em>.</p></li>
+<li><p>Turn the log file on using <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">on</span> <span class="pre">logout</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>.</p></li>
+<li><p>Close the log file at the end of your do-file. Inspect the log file in your working directory.</p></li>
+</ul>
+<textarea id="ex1" rows="10"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>Use <code class="docutils literal notranslate"><span class="pre">capture</span></code> if you are not sure if a command will execute. E.g., if you are not sure if a log file called <em>logout</em> is currently open, you can use <code class="docutils literal notranslate"><span class="pre">capture</span> <span class="pre">log</span> <span class="pre">close</span> <span class="pre">logout</span></code> to try to close it. If it is not open, nothing will happen and Stata will move on. <br>
+<code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">using</span></code> let’s you specify a file name and path for log file storage. Just like when saving data, use the <em>option</em> <code class="docutils literal notranslate"><span class="pre">replace</span></code> to make sure to overwrite existing files.</p>
+</details> 
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">capture log close</span> logout
+<span class="k">log</span> using <span class="s">&quot;</span><span class="vg">${log}</span><span class="s">/mylog.txt&quot;</span>,<span class="k"> replace</span> text name(logout)
+
+<span class="k">use</span> <span class="s">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;</span>,<span class="k"> clear</span>
+
+<span class="k">log</span> off logout
+
+<span class="c1">* Estmimate model 1</span>
+<span class="k">regress</span> math write
+
+<span class="k">log on</span> logout
+
+<span class="c1">* Estmimate model 2</span>
+<span class="k">regress</span> math c<span class="m">.</span>write i<span class="m">.</span>gender
+
+<span class="k">log close</span>
+</pre></div>
+</div>
+<p>Your log file should only contain the output for model 2, because you explicitly turned the <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">off</span></code> before model 1.</p>
+</details>
+<h5>Exercise 2 – Formatting regression output </h5>
+<ul class="simple">
+<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and store the model as <em>m1</em> using <code class="docutils literal notranslate"><span class="pre">eststo</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>. Store the model as <em>m2</em>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">esttab</span> <span class="pre">m1</span> <span class="pre">m2</span></code> to get a basic table of your output in Stata.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">esttab</span></code> to store the table as an <strong>.rtf</strong> file in your output folder.</p></li>
+</ul>
+ <textarea id="ex2" rows="8"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can use basic <code class="docutils literal notranslate"><span class="pre">esttab</span></code> to get nicely formatted tables for your log files. <br>
+<code class="docutils literal notranslate"><span class="pre">using</span></code> let’s you pass a path to <code class="docutils literal notranslate"><span class="pre">esttab</span></code> to store your table.</p>
+</details> 
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="s">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;</span>,<span class="k"> clear</span>
+
+eststo<span class="k"> clear</span> <span class="c1">// Clears currently stored estimates</span>
+<span class="k">regress</span> math c<span class="m">.</span>write
+eststo m1
+
+<span class="k">regress</span> math c<span class="m">.</span>write i<span class="m">.</span>gender
+eststo m2
+
+esttab m1 m2 
+esttab m1 m2 using <span class="s">&quot;</span><span class="vg">${output}</span><span class="s">/regression_table.rtf&quot;</span>,<span class="k"> replace</span>
+</pre></div>
+</div>
+<p>Use the <em>options</em> to tailor the table to your specific needs. E.g., using <em>option</em> <code class="docutils literal notranslate"><span class="pre">se</span></code> prints standard errors instead of t-statistics.</p>
+</details>
+<h5>Exercise 3 – Designing twoway graphs </h5>
+<ul class="simple">
+<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p>Make a <code class="docutils literal notranslate"><span class="pre">twoway</span> <span class="pre">scatter</span></code> plot of <em>math</em> (y-axis) against <em>write</em> (x-axis).</p></li>
+<li><p>Choose different colors for male and female observations.</p></li>
+<li><p>Add a line of best fit for each gender to your graph.</p></li>
+<li><p>Include custom titles and a legend.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">graph</span> <span class="pre">export</span></code> to save the final graph as “<strong>mygraph.pdf</strong>” in your output folder.</p></li>
+</ul>
+ <textarea id="ex2" rows="20"
+  style="width:100%;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+         font-size: 0.95rem;
+         padding: 0.6rem;
+         border: 1px solid #999;
+         border-radius: 6px;
+         color: #000;
+         background-color: #fff;
+         outline: none;
+         box-shadow: none;"
+  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
+<details>
+<summary>💡 Hint</summary>
+<p>You can combine <code class="docutils literal notranslate"><span class="pre">twoway</span></code>graphs by putting them in parentheses: <code class="docutils literal notranslate"><span class="pre">twoway</span> <span class="pre">scatter</span> <span class="pre">()</span> <span class="pre">()</span></code>. <br>
+Use suitable <em>if</em>-conditions to plot data points for one gender at a time. <br>
+Use line breaks <code class="docutils literal notranslate"><span class="pre">///</span></code> or change the delimiter to handle long <code class="docutils literal notranslate"><span class="pre">twoway</span></code> commands.</p>
+</details> 
+<details>
+<summary>✅ Solution</summary>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="s">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;</span>,<span class="k"> clear</span>
+
+<span class="c1">* Basic graph</span>
+<span class="k">twoway scatter</span> math write
+
+<span class="c1">* With different colors by gender</span>
+<span class="k">twoway</span> (scatter math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>, mcolor(navy)) <span class="cs">///</span>
+(scatter math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>, mcolor(maroon))
+
+<span class="c1">* With a line of best fit by gender</span>
+<span class="k">twoway</span> (scatter math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>, mcolor(navy)) <span class="cs">///</span>
+(scatter math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>, mcolor(maroon)) <span class="cs">///</span>
+(lfit math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>, lcol(navy)) <span class="cs">///</span>
+(lfit math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>, lcol(maroon))
+
+<span class="c1">* With complete formatting</span>
+<span class="k">twoway</span> (scatter math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>, mcolor(navy)) <span class="cs">///</span>
+(scatter math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>, mcolor(maroon)) <span class="cs">///</span>
+(lfit math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>, lcolor(navy)) <span class="cs">///</span>
+(lfit math write<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>, lcolor(maroon)), <span class="cs">///</span>
+legend(order(<span class="m">1</span> <span class="s">&quot;Male&quot;</span> <span class="m">2</span> <span class="s">&quot;Female&quot;</span>) col(<span class="m">2</span>) pos(<span class="m">6</span>)) <span class="cs">///</span>
+ytitle(<span class="s">&quot;Math&quot;</span>) xtitle(<span class="s">&quot;Writing&quot;</span>) title(<span class="s">&quot;&quot;</span>OLS<span class="k"> fit</span> of math<span class="k"> on</span> writing,<span class="k"> by</span> gender<span class="s">&quot;&quot;</span>)
+
+<span class="c1">* Export final graph</span>
+<span class="k">graph</span> export <span class="s">&quot;</span><span class="vg">${output}</span><span class="s">/mygraph.pdf&quot;</span>,<span class="k"> replace</span>
+</pre></div>
+</div>
+</details>
+<p><span style="display:block; margin-top:4em;"></span></p>
 </section>
 </section>
 
@@ -420,7 +600,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-apply-what-youve-learned">🧪 Exercises: Apply What You’ve Learned</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
 </ul>
   </nav></div>
 
