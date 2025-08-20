@@ -196,3 +196,5 @@ summarize headroom
 *foreign* is a dummy variable.
 
 </details>
+
+<span style="display:block; margin-top:4em;"></span>
