@@ -18,12 +18,12 @@ When you've completed the video, try to solve the following exercises. For your 
 
 <span style="display:block; margin-top:0.5em;"></span>
 
-We will use **hs0** data from UCLA for the following exercises. 
+We will use the publicly available **hs0** data from UCLA for the following exercises. 
 
 <h5>Exercise 1 – Ordinary Least Squares </h5>
 
-- Load the **hs0** data.
-- `Regress` *math* on *write*. Interpret the estimated coefficient.
+- Load the dataset **hs0.dta**.
+- `regress` *math* on *write*. Interpret the estimated coefficient.
 - Add `i.gender` to the model. Interpret the estimated coefficient.
 - Add `c.write#i.gender` to the model. Interpret the estimated coefficient.
 
@@ -43,7 +43,7 @@ We will use **hs0** data from UCLA for the following exercises.
 <details>
 <summary>💡 Hint</summary>
 
-*Math* is your dependent (left-hand side) variable. <br>
+*math* is your dependent (left-hand side) variable. <br>
 The qualifier `c.` tells Stata that a variable is continuous, `i.` is for categorical variables.
 By combining variables with `#` you include an interaction between them into the model. <br>
 
@@ -75,12 +75,12 @@ The interaction term indicates if the slope of *write* differs by *gender*. For 
 
 <h5>Exercise 2 – Predictions & residuals </h5>
 
-- Load the **hs0** data.
-- `Regress` *math* on *write* and *gender*.
-- `Predict` fitted values *math_hat*. 
-- `Predict` residuals *resid_hat*.
+- Load the dataset **hs0.dta**.
+- `regress` *math* on *write* and *gender*.
+- `predict` fitted values *math_hat*. 
+- `predict` residuals *resid_hat*.
 - Plot residuals vs. fitted values.
-- Provide a **QQ-plot** for the standardized residuals.
+- Provide a **QQ-plot** for the standardized residuals *resid_hat_std*.
 
 <textarea id="ex2" rows="8"
   style="width:100%;
@@ -98,10 +98,10 @@ The interaction term indicates if the slope of *write* differs by *gender*. For 
 <details>
 <summary>💡 Hint</summary>
 
-You can use `predict` to calculate residuals and standardized residuals. <br>
-You can also calculate residuals by hand after predicting the fitted values. <br>
+You may use `predict` to calculate residuals and standardized residuals. <br>
+You may also calculate residuals by hand after predicting the fitted values. <br>
 Use `scatter` to plot residuals (y-axis) against fitted values (x-axis). <br>
-Use `qnorm [residuals_standardized]` for the QQ-plot.
+Use `qnorm resid_hat_std` for the QQ-plot.
 
 </details> 
 
@@ -122,10 +122,10 @@ qnorm resid_hat_std
 
 <h5>Exercise 3 – Testing hypotheses </h5>
 
-- Load the **hs0** data.
-- `Regress` *math* on *write* and *gender.
-- `Test` if the coefficient on *write* is equal to 1.
-- `Test` if *write* and *gender* are jointly significant.
+- Load the dataset **hs0.dta**.
+- `regress` *math* on *write* and *gender*.
+- `test` if the coefficient on *write* is equal to 1.
+- `test` if *write* and *gender* are jointly significant.
 
 <textarea id="ex3" rows="6"
   style="width:100%;
@@ -161,10 +161,10 @@ test write 2.gender
 
 <h5>Exercise 4 – Using `margins` </h5>
 
-- Load the **hs0** data.
-- `Regress` *math* on *write* and *gender*.
+- Load the dataset **hs0.dta**.
+- `regress` *math* on *write* and *gender*.
 - Use `margins i.gender` to compare predicted *math* scores across *gender*.
-- Use `predict` to calculate fitted values. `Summarize` fitted values `by` *gender*. Compare your results.
+- Use `predict` to calculate fitted values. `summarize` fitted values `by` *gender*. Compare your results.
 - Use `margins, dydx(write)` to interpret marginal effects.
 
 
@@ -193,7 +193,7 @@ bys gender: sum math_hat
 ```
 
 Calculated means are different. <br>
-`margins female` reports adjusted means: it predicts *math* for each observation twice (as if male and as if female), holding each observation’s own *write* value fixed, then averages. So groups are compared with the same distribution of controls. <br>
+`margins gender` reports adjusted means: it predicts *math* for each observation twice (as if male and as if female), holding each observation’s own *write* value fixed, then averages. So groups are compared with the same distribution of controls. <br>
 Using `predict` and `bys gender: summarize` averages fitted values within each group’s actual covariate distribution, so differences in *write* across groups affect the means.
 
 ```stata
@@ -206,7 +206,7 @@ For linear models, this is just the estimated coefficient. This will become espe
 
 <h5>Exercise 5 – Non-linear models </h5>
 
-- Load the **hs0** data.
+- Load the dataset **hs0.dta**.
 - Create a dummy variable *high_math* which equals 1 for observations with a *math* score over 60, and 0 if *math* is 60 or lower.
 - Estimate a logistic regression of *high_math* on *write* and *gender*.
 - Use `margins, dydx()` to calculate average marginal effects.
@@ -229,10 +229,10 @@ For linear models, this is just the estimated coefficient. This will become espe
 <details>
 <summary>💡 Hint</summary>
 
-You need to `generate` a new variable. Use a suitable *if*-condition and do not forget to exclude `missing()`s. <br>
+You need to `generate` a new variable. Use a suitable *if*-condition and do not forget to exclude missings. <br>
 Use `logit` to estimate a logistic regression. <br>
 To span the empirical range of *write*, store `r(min)` and `r(max)` in **locals** after `summarize` and feed these to `margins` with the option `at(write=(local_min(1)local_max))`. <br>
-When calling a local, enclose its name in backticks and apostrophes: `local'.
+When calling a **local**, enclose its name in backticks and apostrophes: `local'.
 
 </details> 
   
@@ -267,7 +267,7 @@ marginsplot
 
 <h5>Exercise 6 – Quiz </h5>
 
-Answer the following Single-Choice (i.e., there is always exactly one correct answer) questions on **panel data models**. <br>
+Answer the following Single-Choice questions (i.e., there is always exactly one correct answer) on **panel data models**. <br>
 
 <span style="display:block; margin-top:0.5em;"></span>
 
@@ -298,8 +298,8 @@ D) xtreg y x, robust
 <summary>✅ Solution</summary>
 
 **Correct answer: A** <br>
-The option `re` estimates a *random effects* model. <br>
-The option `robust` provides robust standard errors.
+The *option* `re` estimates a *random effects* model. <br>
+The *option* `robust` provides robust standard errors.
 
 </details>
 
@@ -312,8 +312,8 @@ xtreg wage educ exp, fe
 ```
 
 Which of the following statements is true? <br>
-A) The effect of educ is identified only from variation **within** individuals over time.  <br>
-B) The effect of educ is identified from both **between** and **within** variation.  <br>
+A) The effect of *educ* is identified only from variation **within** individuals over time.  <br>
+B) The effect of *educ* is identified from both **between** and **within** variation.  <br>
 C) In fixed effects models, standard errors are automatically cluster robust.  <br>
 D) The model cannot identify the effect of *exp* since work experience never changes over time.
 
@@ -321,7 +321,7 @@ D) The model cannot identify the effect of *exp* since work experience never cha
 <summary>✅ Solution</summary>
 
 **Correct answer: A** <br>
-To estimate cluster robust standard errors, you need to specify the option `vce(cluster id)`
+To estimate cluster robust standard errors, you need to specify the *option* `vce(cluster id)`
 
 </details>
 

@@ -18,15 +18,15 @@ When you've completed the video, try to solve the following exercises. For your 
 
 <h5>Exercise 0 – Preparing your working environment</h5>
 
-- Setup a working directory 
-- Download the following data files into your working directory:
+- Set up your working directory 
+- Download the following datasets into your working directory:
 	- [pl.dta](pl.dta)
 	- [hh.dta](hh.dta)
 	- [pers.dta](pers.dta)
 	- [edu_2015.dta](edu_2015.dta)
 	- [edu_2016.dta](edu_2016.dta)
 	- [edu_2017.dta](edu_2017.dta)
-- Open a new do-file and specify your paths.
+- Open a new do-file and specify your paths using `global` macros.
 
 <textarea id="ex0" rows="6"
   style="width:100%;
@@ -55,11 +55,11 @@ cd "${wd}"
 <h5>Exercise 1 – Merging data</h5>
 	
 - Load the file **pl.dta** and inspect the data.
-- Open the other data files. What are suitable identifiers for a merge with **pl.dta**?
-- Merge the file **pers.dta** to **pl.dta**.
-- Merge the file **hh.dta** to **pl.dta**.
-- Append the education files. Merge the appended **edu.dta** to **pl.dta**.
-- Inspect your final data set.
+- Open the other datasets. What are suitable identifiers for a merge with **pl.dta**?
+- `merge` the file **pers.dta** to **pl.dta**.
+- `merge` the file **hh.dta** to **pl.dta**.
+- `append` the education files and save the file as **edu.dta**. `merge` the file **edu.dta** to **pl.dta**.
+- Inspect your final dataset.
 
 <textarea id="ex1" rows="20"
   style="width:100%;
@@ -78,7 +78,7 @@ cd "${wd}"
 <summary>💡 Hint</summary>
 
 The *help* file for `merge` will soon become your best friend. <br>
-You can temporarily open new data sets, run commands on them, and store them, if you use `preserve` and `restore`.
+You can temporarily open new datasets, run commands on them, and store them, if you use `preserve` and `restore`.
 
 </details>
 
@@ -90,8 +90,8 @@ use pl.dta, clear
 browse
 ```
 
-You may use the Command window to open the other data files. This does not have to be part of your do-file. <br>
-Make sure that **pl.dta** is loaded before starting the merges.
+You may use the **Command** window to open the other datasets. This does not have to be part of your do-file. <br>
+Make sure that the file **pl.dta** is loaded before starting the merges.
 
 ```stata
 merge m:1 id using "pers.dta"
@@ -109,7 +109,7 @@ append using "edu_2017.dta"
 save "edu.dta", replace
 restore
 
-merge 1:1 id year using "edu.dta", keep(master match)
+merge 1:1 id year using "edu.dta"
 tab _merge
 drop _merge
 ```
@@ -119,7 +119,7 @@ drop _merge
 
 <h5>Exercise 2 – Quiz</h5>
 
-Answer the following Single-Choice (i.e., there is always exactly one correct answer) questions on the different *options* for `merge`. <br>
+Answer the following Single-Choice questions (i.e., there is always exactly one correct answer) on the different *options* for `merge`. <br>
 
 <span style="display:block; margin-top:0.5em;"></span>
 
@@ -148,7 +148,7 @@ D) keep(master match)
 <summary>✅ Solution</summary>
 
 **Correct answer: B** <br>
-The number 2 refers to the using data (1 = master, 3 = match).
+Passing the number 2 to `keep`, only keeps observations from the *using* data (1 = master only, 3 = matched only).
 
 </details>
 

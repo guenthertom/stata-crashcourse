@@ -3,7 +3,7 @@ root: README
 
 chapters:
   - file: units/unit01_first_steps/README
-    title: Unit 1 – First Steps in Stata
+    title: Unit 1 – First steps in Stata
   - file: units/unit02_commands/README
     title: Unit 2 – Stata commands
   - file: units/unit03_setup_environment/README

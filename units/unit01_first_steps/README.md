@@ -18,9 +18,9 @@ When you've completed the video, try to solve the following exercises. For your 
 
 <h5>Exercise 1 – Opening and exploring data</h5>
 
-- Load the example dataset *auto*.  
+- Load the built-in dataset *auto.dta*.  
 - Inspect the first 10 rows.  
-- List three variables you observe in the dataset.
+- `list` three variables you observe in the dataset.
 
 <textarea id="ex1-1" rows="4"
   style="width:100%;
@@ -54,7 +54,7 @@ list make price mpg
 
 <h5>Exercise 2 – Understanding how Stata stores the data</h5>
 
-- Summarize the variable *price*. Sort the data by *weight*. Summarize *price* again. What do you observe?
+- `Summarize` the variable *price*. `Sort` the data by *weight*. `Summarize` *price* again. What do you observe?
 
 <textarea id="ex2-1" rows="6"
   style="width:100%;
@@ -72,7 +72,7 @@ list make price mpg
 <details>
 <summary>💡 Hint</summary>
 
-Check out the *help* file for summarize.
+Check out the *help* file for `summarize`.
 
 </details>
 
@@ -84,13 +84,13 @@ summarize price
 sort weight
 summarize price
  ```
- The output is the same. Summarize uses all non-missing information on price. Sorting does not matter.
+ The output is the same. `Summarize` uses all non-missing information on *price*. Sorting does not matter.
 
 </details>
 
 <span style="display:block; margin-top:0.5em;"></span>
 
-- Display the variable *price*. Sort the data by *weight*. Display *price* again. What do you observe?
+- `Display` the variable *price*. `Sort` the data by *weight*. `Display` *price* again. What do you observe?
 
 <textarea id="ex2-2" rows="6"
   style="width:100%;
@@ -117,18 +117,19 @@ You may abbreviate the command `display` with `di`.
 <summary>✅ Solution</summary>
 
 ```stata
-di price
+display price
 sort weight
-di price
+display price
  ```
-The output is different. Display only shows the content of price for the first observation. 
+ 
+The output is different. `Display` only shows the content of *price* for the first observation. 
 As Stata stores data in an ordered table, sorting becomes relevant here.
 
 </details>
 
 <h5>Exercise 3 – Navigating Stata's interface</h5>
 
-- Select the variables *mpg* and *make* in the Variables window. Use the Properties window to compare their storage types 
+- Select the variables *mpg* and *make* in the **Variables** window. Use the **Properties** window to compare their storage types. 
 
 <textarea id="ex3-1" rows="3"
   style="width:100%;
@@ -147,7 +148,7 @@ As Stata stores data in an ordered table, sorting becomes relevant here.
 
 <summary>💡 Hint</summary>
 
-You can select any variable in the Variables window by clicking on its name.
+You can select any variable in the **Variables** window by clicking on its name.
 
 </details>
 
@@ -161,8 +162,8 @@ You can select any variable in the Variables window by clicking on its name.
 
 <span style="display:block; margin-top:0.5em;"></span>
 
-- Summarize the variable *foreign*. What type of variable is it?
-- Repeat the command for the variable *headroom* by using the History window. 
+- `Summarize` the variable *foreign*. What type of variable is it?
+- Repeat the command for the variable *headroom* by using the **History** window. 
 
 <textarea id="ex3-2" rows="4"
   style="width:100%;
@@ -181,7 +182,7 @@ You can select any variable in the Variables window by clicking on its name.
 
 <summary>💡 Hint</summary>
 
-You can repeat any command from the History window by clicking on it. You will have to change the variable passed to the command though.
+You can repeat any command from the **History** window by clicking on it. You will have to change the variable passed to the command though.
 
 </details>
 
@@ -193,7 +194,8 @@ You can repeat any command from the History window by clicking on it. You will h
 summarize foreign
 summarize headroom
  ```
-*foreign* is a dummy variable.
+ 
+*foreign* is a dummy variable with value labels.
 
 </details>
 
