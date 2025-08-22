@@ -1,6 +1,6 @@
 title: "Stata Crash Course"
 author: "Tom Günther"
-copyright = '2025, Günther, Tom'
+copyright: "2025, Günther, Tom"
 
 only_build_toc_files: true
 
