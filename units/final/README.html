@@ -309,7 +309,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -325,6 +327,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-learning">📚 Further learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#templates">📚 Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-citation">📝 Feedback &amp; citation</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -337,17 +349,31 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="wrap-up-resources">
 <h1>Wrap-up &amp; Resources<a class="headerlink" href="#wrap-up-resources" title="Link to this heading">#</a></h1>
 <p>Congratulations on completing the Stata crash course! You are now able to start your empirical projects. Of course, we couldn’t cover everything here—when you run into new questions, these resources will help.</p>
-<p>📚 Further learning</p>
+<section id="further-learning">
+<h2>📚 Further learning<a class="headerlink" href="#further-learning" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Stata’s official <a class="reference external" href="https://www.stata.com/documentation/">documentation</a> and <em>help</em> files cover most tasks and errors.</p></li>
 <li><p><a class="reference external" href="https://www.stata.com/bookstore/microeconometrics-stata/">Microeconometrics Using Stata (2nd ed.)</a> by Cameron &amp; Trivedi is an excellent textbook companion.</p></li>
 <li><p>Community Q&amp;A: <a class="reference external" href="https://www.statalist.org/">Statalist</a>; <a class="reference external" href="https://www.reddit.com/r/stata/">r/stata</a>; <a class="reference external" href="https://stats.stackexchange.com/">Cross Validated (stats, Stack Exchange)</a>; <a class="reference external" href="https://stackoverflow.com/">Stack Overflow</a>; …</p></li>
 </ul>
-<p>📝 Feedback &amp; citation</p>
+</section>
+<section id="templates">
+<h2>📚 Templates<a class="headerlink" href="#templates" title="Link to this heading">#</a></h2>
+<p>Feel free to use the following templates for your projects:</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../_downloads/371d3d71a8f5eed142c60753618d266d/header.do"><span class="xref download myst">header.do</span></a> is best used for projects under single-authorship.</p></li>
+<li><p>If you work with other people on the same data, you may want to use the extended <a class="reference download internal" download="" href="../../_downloads/0092b7a44f71512ee28a2e14cf1147b7/header_collaboration.do"><span class="xref download myst">header_collaboration.do</span></a>.</p></li>
+<li><p>You can nest do-files, i.e., you can call a do-file from within another do-file. The <a class="reference download internal" download="" href="../../_downloads/1d27730894077fda73943f8f74d92eb3/master.do"><span class="xref download myst">master.do</span></a> makes use of this by creating a hub for your project. Each analysis step will get its own do-file. All do-files are called from the master.</p></li>
+</ul>
+<p>Make sure to implement the folder structure implied by the pathing in these templates.</p>
+</section>
+<section id="feedback-citation">
+<h2>📝 Feedback &amp; citation<a class="headerlink" href="#feedback-citation" title="Link to this heading">#</a></h2>
 <p>If you found bugs or have requests, open an issue or send a note. <br>
 If you cite this material, please use:</p>
 <p>Günther, Tom (2025). Stata Crash Course. URL: <a class="reference external" href="https://guenthertom.github.io/stata-crashcourse/">https://guenthertom.github.io/stata-crashcourse/</a>.</p>
 <p><span style="display:block; margin-top:4em;"></span></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -395,6 +421,23 @@ If you cite this material, please use:</p>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-learning">📚 Further learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#templates">📚 Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-citation">📝 Feedback &amp; citation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
