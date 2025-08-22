@@ -20,7 +20,7 @@ I developed this course as part of an international teaching collaboration betwe
   
 ## 🔍 How You'll Learn
 
-The course is divided into nine units. Each unit works with a combination of slides, videos and exercises.
+The course is divided into 9 units. Each unit works with a combination of slides, videos and exercises.
 
 - 📄 Slides serve as the script - read them before watching the video.
 - ▶️ Videos are hosted on YouTube.

@@ -18,13 +18,13 @@ When you've completed the video, try to solve the following exercises. For your 
 
 <span style="display:block; margin-top:0.5em;"></span>
 
-We will use **hs0** data from UCLA for the following exercises. 
+We will use the publicly available **hs0** data from UCLA for the following exercises. 
 
 <h5>Exercise 0 – Preparing your working environment</h5>
 
-- Setup a working directory. 
-- Create the following folders: log, output.
-- Open a new do-file and specify your paths.
+- Set up your working directory. 
+- Create the following folders: *log*, *output*.
+- Open a new do-file and specify your paths using `global` macros.
 
 <textarea id="ex0" rows="6"
   style="width:100%;
@@ -56,11 +56,11 @@ cd "${wd}"
 
 - At the top of your do-file, ensure that any open log files are closed.
 - Create a new `log` file "**mylog.txt**" `using` your log folder. Save it as a `text` file. `Name` it *logout*.
-- Load the **hs0** data.
+- Load the dataset **hs0.dta**.
 - Turn the log file off using `log off logout`.
-- `Regress` *math* on *write*. 
+- `regress` *math* on *write*. 
 - Turn the log file on using `log on logout`.
-- `Regress` *math* on *write* and *gender*.
+- `regress` *math* on *write* and *gender*.
 - Close the log file at the end of your do-file. Inspect the log file in your working directory.
 
 <textarea id="ex1" rows="10"
@@ -80,7 +80,7 @@ cd "${wd}"
 <summary>💡 Hint</summary>
 
 Use `capture` if you are not sure if a command will execute. E.g., if you are not sure if a log file called *logout* is currently open, you can use `capture log close logout` to try to close it. If it is not open, nothing will happen and Stata will move on. <br>
-`log using` let's you specify a file name and path for log file storage. Just like when saving data, use the *option* `replace` to make sure to overwrite existing files.
+`log using` lets you specify a file name and path for log file storage. Just like when saving data, use the *option* `replace` to make sure to overwrite existing files.
 
 </details> 
 
@@ -95,26 +95,26 @@ use "https://stats.idre.ucla.edu/stat/data/hs0", clear
 
 log off logout
 
-* Estmimate model 1
+* Estimate model 1
 regress math write
 
 log on logout
 
-* Estmimate model 2
+* Estimate model 2
 regress math c.write i.gender
 
 log close
 ```
 
-Your log file should only contain the output for model 2, because you explicitly turned the `log off` before model 1.
+Aside from some log status messages, your log file should only contain the output for model 2, because you explicitly turned the `log off` before model 1.
 
 </details>
 
 <h5>Exercise 2 – Formatting regression output </h5>
 
-- Load the **hs0** data.
-- `Regress` *math* on *write* and store the model as *m1* using `eststo`.
-- `Regress` *math* on *write* and *gender*. Store the model as *m2*.
+- Load the dataset **hs0.dta**.
+- `regress` *math* on *write* and store the model as *m1* using `eststo`.
+- `regress` *math* on *write* and *gender*. Store the model as *m2*.
 - Use `esttab m1 m2` to get a basic table of your output in Stata.
 - Use `esttab` to store the table as an **.rtf** file in your output folder.
 
@@ -134,8 +134,8 @@ Your log file should only contain the output for model 2, because you explicitly
 <details>
 <summary>💡 Hint</summary>
 
-You can use basic `esttab` to get nicely formatted tables for your log files. <br>
-`using` let's you pass a path to `esttab` to store your table.
+You may use basic `esttab` to get nicely formatted tables for your log files. <br>
+`using` lets you pass a path to `esttab` to store your table. You have to enclose the path in `""`.
 
 </details> 
 
@@ -156,20 +156,20 @@ esttab m1 m2
 esttab m1 m2 using "${output}/regression_table.rtf", replace
 ```
 
-Use the *options* to tailor the table to your specific needs. E.g., using *option* `se` prints standard errors instead of t-statistics.
+Use options to tailor the table to your specific needs. E.g., using the *option* `se` prints standard errors instead of t-statistics.
 
 </details>
 
 <h5>Exercise 3 – Designing twoway graphs </h5>
 
-- Load the **hs0** data.
+- Load the dataset **hs0.dta**.
 - Make a `twoway scatter` plot of *math* (y-axis) against *write* (x-axis).
 - Choose different colors for male and female observations.
 - Add a line of best fit for each gender to your graph.
 - Include custom titles and a legend.
 - Use `graph export` to save the final graph as "**mygraph.pdf**" in your output folder.
 
- <textarea id="ex2" rows="20"
+ <textarea id="ex3" rows="20"
   style="width:100%;
          font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
          font-size: 0.95rem;
@@ -185,7 +185,7 @@ Use the *options* to tailor the table to your specific needs. E.g., using *optio
 <details>
 <summary>💡 Hint</summary>
 
-You can combine `twoway`graphs by putting them in parentheses: `twoway scatter () ()`. <br>
+You can combine `twoway`graphs by putting them in parentheses: `twoway (scatter y x) (scatter z x)`. <br>
 Use suitable *if*-conditions to plot data points for one gender at a time. <br>
 Use line breaks `///` or change the delimiter to handle long `twoway` commands.
 
@@ -216,7 +216,7 @@ twoway (scatter math write if gender == 1, mcolor(navy)) ///
 (lfit math write if gender == 1, lcolor(navy)) ///
 (lfit math write if gender == 2, lcolor(maroon)), ///
 legend(order(1 "Male" 2 "Female") col(2) pos(6)) ///
-ytitle("Math") xtitle("Writing") title(""OLS fit of math on writing, by gender"")
+ytitle("Math") xtitle("Writing") title("OLS fit of math on writing, by gender")
 
 * Export final graph
 graph export "${output}/mygraph.pdf", replace

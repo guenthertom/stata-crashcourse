@@ -175,7 +175,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../unit01_first_steps/README.html">Unit 1 – First Steps in Stata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unit01_first_steps/README.html">Unit 1 – First steps in Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit02_commands/README.html">Unit 2 – Stata commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit03_setup_environment/README.html">Unit 3 - Setting up Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit04_loading_data/README.html">Unit 4 - Loading data into Stata</a></li>
@@ -184,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unit07_data_wrangling/README.html">Unit 7 - Data wrangling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit08_model_estimation/README.html">Unit 8 - Model estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit09_output/README.html">Unit 9 - Output presentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final/README.html">Wrap-up &amp; resources</a></li>
 </ul>
 
     </div>
@@ -362,7 +363,7 @@ document.write(`
 <h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
 <h5>Exercise 1 – Quiz</h5>
-<p>Answer the following Single-Choice (i.e., there is always exactly one correct answer) questions. <br></p>
+<p>Answer the following Single-Choice questions (i.e., there is always exactly one correct answer). <br></p>
 <p><span style="display:block; margin-top:0.5em;"></span></p>
 <p><strong>Q1: Which of the following statements is correct?</strong> <br>
 A) Adding two strings will result in their numeric sum. <br>
@@ -374,10 +375,10 @@ D) Value labels change the underlying numeric values.</p>
 <p><strong>Correct answer: C</strong> <br>
 Adding two strings will paste them together: “Hello” + “World” = “HelloWorld” <br>
 Integers do not have decimals, floats may have decimals. <br>
-Value labels are so-called meta data that assign <em>additional</em> information to underlying numeric values.</p>
+Value labels are so-called meta data that assign <strong>additional</strong> information to underlying numeric values.</p>
 </details>
 <p><span style="display:block; margin-top:0.5em;"></span></p>
-<p><strong>Q2: Which of the following is a valid <em>if</em> condition?</strong> <br>
+<p><strong>Q2: Which of the following contains a valid <em>if</em> condition?</strong> <br>
 A) summarize price if mpg = 20 <br>
 B) summarize price if mpg == 20 <br>
 C) summarize price if mpg == 20 | 30 <br>
@@ -401,26 +402,26 @@ C) 3, 4, 5, 6, 7 <br>
 D) 3, 6, 9</p>
 <details>
 <summary>💡 Hint</summary>
-<p>You only have this one variable in the data set. <br>
+<p>Assume that you only have this one variable in the dataset. <br>
 A negative number in the command means you are counting backwards, starting at the very last observation. <br>
-In Stata, the first entry of an ordered list gets the index 1.</p>
+In Stata, the first entry of an ordered list has the index 1.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
 <p><strong>Correct answer: A</strong> <br>
-0 is not part of the data.
+0 is not part of the data. <br>
 The -3 means that we count backwards, starting with 10 as the first observation. Thus, 8 is the third observation from the end of the list.</p>
 </details>
-<h5>Exercise 2 – Generating and inspecting value labels</h5>
+<h5>Exercise 2 – Generating and inspecting value labels </h5>
 <ul class="simple">
-<li><p>Load the built-in <em>auto.dta</em>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Browse</span></code> the data and look for a String variable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Encode</span></code> this variable. What do you observe?</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">codebook</span></code> to inspect the variable <em>foreign</em>. What are its value and attached value labels?</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Recode</span></code> <em>foreign</em> so that the value 1 now equals 2. What happens to the values and value labels?</p></li>
+<li><p>Load the built-in dataset <em>auto.dta</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">browse</span></code> the data and look for a string variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encode</span></code> this variable. What do you observe?</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">codebook</span></code> to inspect the variable <em>foreign</em>. What are its values and attached value labels?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recode</span></code> <em>foreign</em> so that the value 1 now equals 2. What happens to the values and value labels?</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">dir</span></code> and <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">list</span></code> to inspect all value labels of the data.</p></li>
 </ul>
-<textarea id="ex2-1" rows="20"
+<textarea id="ex2" rows="20"
   style="width:100%;
          font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
          font-size: 0.95rem;
@@ -434,8 +435,8 @@ The -3 means that we count backwards, starting with 10 as the first observation.
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>When <code class="docutils literal notranslate"><span class="pre">browsing</span></code> the data, value labels will be highlighted in blue. <br>
-Some commands like <code class="docutils literal notranslate"><span class="pre">encode</span></code> have mandatory <em>options</em> that you have to specify. These are not in <code class="docutils literal notranslate"><span class="pre">[]</span></code> in the <em>help</em> file.</p>
+<p>When browsing the data, value labels will be highlighted in blue. <br>
+Some commands like <code class="docutils literal notranslate"><span class="pre">encode</span></code> have mandatory <em>options</em> that you have to specify. These are not enclosed in <code class="docutils literal notranslate"><span class="pre">[]</span></code> in the <em>help</em> file.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -446,30 +447,30 @@ Some commands like <code class="docutils literal notranslate"><span class="pre">
 <span class="k">tab</span> make_num, nolab
 </pre></div>
 </div>
-<p>Encode sorts the string variable alphabetically and then assigns consecutive integers (here: 1-74) as categories.</p>
+<p><code class="docutils literal notranslate"><span class="pre">encode</span></code> sorts the string variable alphabetically and then assigns consecutive integers (here: 1-74) as values for the categories.</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">codebook</span> foreign
 </pre></div>
 </div>
-<p>The variable has two unique values (0/1) with the labels “Domestic” (0) and “Foreign” (1).</p>
+<p>The variable has two unique values (0/1) with the labels “<em>Domestic</em>” (0) and “<em>Foreign</em>” (1).</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">recode</span> foreign (<span class="m">1</span>=<span class="m">2</span>)
 <span class="k">codebook</span> foreign
 </pre></div>
 </div>
 <p>The variable still has two unique values (0/2), but there is no label attached to the number 2. Value labels do not change according to changes in the values themselves.</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">label dir</span>
-<span class="k">lab list</span> 
+<span class="k">label list</span> 
 </pre></div>
 </div>
-<p>There are two value labels in the data named “make_num” (self-generated) and “origins”. <code class="docutils literal notranslate"><span class="pre">Label</span> <span class="pre">list</span></code> provides the content of all value labels in the data.</p>
+<p>There are two value labels in the data named “<em>make_num</em>” (self-generated) and “<em>origin</em>”. <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">list</span></code> provides the content of all value labels in the data.</p>
 </details>
 <h5>Exercise 3 – Complex if-conditions </h5>
 <ul class="simple">
-<li><p>Load the original <em>auto.dta</em>.</p></li>
-<li><p>Show frequencies of all car types stored in the variable <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p></li>
+<li><p>Load the built-in dataset <em>auto.dta</em>.</p></li>
+<li><p>Show frequencies of all car types stored in the variable <em>make</em>.</p></li>
 <li><p>Use an <em>if</em>-condition to show which car types weigh more than 4000 lbs.</p></li>
-<li><p>Use an <em>if</em>-condition to show which car types weigh less than 2000 lbs or more than 4000 lbs and cost more than 8000.</p></li>
+<li><p>Use an <em>if</em>-condition to show which car types weigh less than 2000 lbs OR <code class="docutils literal notranslate"><span class="pre">|</span></code> more than 4000 lbs AND <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> cost more than 8000.</p></li>
 </ul>
-<textarea id="ex2-1" rows="6"
+<textarea id="ex3" rows="6"
   style="width:100%;
          font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
          font-size: 0.95rem;
@@ -483,8 +484,8 @@ Some commands like <code class="docutils literal notranslate"><span class="pre">
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>You can use the command <code class="docutils literal notranslate"><span class="pre">tabulate</span></code> to show frequencies. <br>
-You can combine <em>if</em>-conditions with logical operators. When combining AND <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> with OR <code class="docutils literal notranslate"><span class="pre">|</span></code> conditions, Stata will evaluate AND <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> conditions first. You can override this behavior by putting OR <code class="docutils literal notranslate"><span class="pre">|</span></code> conditions in paratheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+<p>You could use <code class="docutils literal notranslate"><span class="pre">tabulate</span></code> to show frequencies. <br>
+You may combine <em>if</em>-conditions with logical operators. When combining AND <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> with OR <code class="docutils literal notranslate"><span class="pre">|</span></code> conditions, Stata will evaluate AND <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> conditions first. You can override this behavior by putting OR <code class="docutils literal notranslate"><span class="pre">|</span></code> conditions in parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -590,7 +591,7 @@ By Tom Günther
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025, Günther, Tom.
       <br/>
     
   </p>

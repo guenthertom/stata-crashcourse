@@ -175,7 +175,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../unit01_first_steps/README.html">Unit 1 – First Steps in Stata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unit01_first_steps/README.html">Unit 1 – First steps in Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit02_commands/README.html">Unit 2 – Stata commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit03_setup_environment/README.html">Unit 3 - Setting up Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit04_loading_data/README.html">Unit 4 - Loading data into Stata</a></li>
@@ -184,6 +184,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit 7 - Data wrangling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit08_model_estimation/README.html">Unit 8 - Model estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit09_output/README.html">Unit 9 - Output presentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final/README.html">Wrap-up &amp; resources</a></li>
 </ul>
 
     </div>
@@ -362,10 +363,10 @@ document.write(`
 <h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
 <p><span style="display:block; margin-top:0.5em;"></span></p>
-<p>We will use <strong>hs0</strong> data from UCLA for the following exercises.</p>
+<p>We will use the publicly available <strong>hs0</strong> data from UCLA for the following exercises.</p>
 <h5>Exercise 1 – Transforming variables </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
 <li><p>Calculate the total score over the variables <em>read</em>, <em>write</em>, <em>math</em>, <em>science</em>, and <em>socst</em>.</p></li>
 <li><p>Calculate the mean score over the five variables using <code class="docutils literal notranslate"><span class="pre">generate</span></code>.</p></li>
 <li><p>Calculate the mean score over the five variables using <code class="docutils literal notranslate"><span class="pre">egen</span></code>. Compare your results.</p></li>
@@ -387,7 +388,7 @@ document.write(`
 <summary>💡 Hint</summary>
 <p>You can load the data with <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">&quot;https://stats.idre.ucla.edu/stat/data/hs0&quot;,</span> <span class="pre">clear</span></code>. <br>
 You can calculate the mean by dividing the total score by the number of categories. <br>
-There is an <code class="docutils literal notranslate"><span class="pre">egen</span></code> function for z-standardization.</p>
+There is an <code class="docutils literal notranslate"><span class="pre">egen</span></code> function for mean calculation and z-standardization.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -398,7 +399,7 @@ There is an <code class="docutils literal notranslate"><span class="pre">egen</s
 <span class="k">br if</span> mean_score <span class="o">!=</span> mean_score_comp
 </pre></div>
 </div>
-<p>The mean calculation by hand excludes all observations that have missing information on any score variables. <br>
+<p>The mean calculation by hand excludes all observations that have missing information on any score variable. <br>
 <code class="docutils literal notranslate"><span class="pre">egen</span> <span class="pre">rowmean()</span></code> ignores missing values.</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">egen</span> math_z = std(math)
 <span class="k">hist</span> math_z, norm
@@ -407,9 +408,9 @@ There is an <code class="docutils literal notranslate"><span class="pre">egen</s
 </details>
 <h5>Exercise 2 – Working with missing observations </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
 <li><p>Check how many missings there are on the variables <em>read</em>, <em>math</em> and <em>science</em>.</p></li>
-<li><p>Summarize <em>math</em> scores for students with a <em>science</em> score below 60 and for students with a score above 60.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">summarize</span></code> <em>math</em> scores for students with a <em>science</em> score below 60 and for students with a score above 60.</p></li>
 <li><p>Impute missing <em>science</em> scores by the overall mean of <em>science</em>. Generate a new variable for the imputed version and flag imputed observations.</p></li>
 </ul>
 <textarea id="ex2" rows="20"
@@ -453,10 +454,10 @@ For the imputation, you could use a combination of <code class="docutils literal
 </details>
 <h5>Exercise 3 – Working `by` subgroups </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
 <li><p>Inspect and <code class="docutils literal notranslate"><span class="pre">encode</span></code> the variable <em>prgtype</em>.</p></li>
 <li><p>Calculate mean <em>math</em> scores <code class="docutils literal notranslate"><span class="pre">by</span></code> program type. Which type performs best?</p></li>
-<li><p>Plot histograms of <em>math</em> scores <code class="docutils literal notranslate"><span class="pre">by</span></code> <em>gender</em></p></li>
+<li><p>Plot one <code class="docutils literal notranslate"><span class="pre">histogram</span></code> each for <em>math</em> scores <code class="docutils literal notranslate"><span class="pre">by</span></code> <em>gender</em>.</p></li>
 </ul>
 <textarea id="ex3" rows="8"
   style="width:100%;
@@ -472,8 +473,8 @@ For the imputation, you could use a combination of <code class="docutils literal
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>You do not have to create new variables for the mean scores. <code class="docutils literal notranslate"><span class="pre">Summarize</span></code> works with <code class="docutils literal notranslate"><span class="pre">by</span></code> if the data is sorted. Use <code class="docutils literal notranslate"><span class="pre">bysort</span></code> for that. <br>
-You can plot two seperate histograms or combine them in one graph. If <em>histogram</em> does not support <code class="docutils literal notranslate"><span class="pre">by</span></code>, you have to work with <em>if</em>-conditions.</p>
+<p>You do not have to create new variables for the mean scores. <code class="docutils literal notranslate"><span class="pre">summarize</span></code> works with <code class="docutils literal notranslate"><span class="pre">by</span></code> if the data is sorted. Use <code class="docutils literal notranslate"><span class="pre">bysort</span></code> for that. <br>
+You can plot two seperate histograms or combine them in one graph. If <em>histogram</em> does not support <code class="docutils literal notranslate"><span class="pre">by</span></code>, you have to work with <em>if</em>-conditions instead.</p>
 </details> 
 <details>
 <summary>✅ Solution</summary>
@@ -486,18 +487,18 @@ You can plot two seperate histograms or combine them in one graph. If <em>histog
 </div>
 <p>The academic tracks have the highest average math scores.</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">codebook</span> gender
-<span class="k">hist</span> math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>
-<span class="k">hist</span> math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>
+<span class="k">histogram</span> math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>
+<span class="k">histogram</span> math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>
 <span class="c1">// Both in one graph</span>
-<span class="k">hist</span> math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>, col(red) addplot(hist math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>)
+<span class="k">histogram</span> math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>, col(red) addplot(histogram math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>)
 <span class="c1">// Using twoway</span>
 <span class="k">twoway</span> (hist math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">1</span>, col(red)) (hist math<span class="k"> if</span> gender <span class="o">==</span> <span class="m">2</span>)
 </pre></div>
 </div>
 </details>
-<h5>Exercise 4 – Managing the size of your data set </h5>
+<h5>Exercise 4 – Managing the size of your dataset </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
 <li><p>Drop the variables <em>schtyp</em> and <em>ses</em></p></li>
 <li><p>Keep only complete (non-missing) observations.</p></li>
 <li><p>Drop all observations from a <em>vocational</em> program.</p></li>
@@ -530,7 +531,7 @@ Check the storage type of <em>prgtype</em> before dropping observations.</p>
 <span class="k">drop if</span> prgtype <span class="o">==</span> <span class="s">&quot;vocati&quot;</span>
 </pre></div>
 </div>
-<p>You could also <code class="docutils literal notranslate"><span class="pre">encode</span></code> prgtype before dropping variables if you do not want to work with strings.</p>
+<p>You could also <code class="docutils literal notranslate"><span class="pre">encode</span> <span class="pre">prgtype</span></code> before dropping variables if you do not want to work with strings.</p>
 </details>  
 <p><span style="display:block; margin-top:4em;"></span></p>
 </section>
@@ -627,7 +628,7 @@ By Tom Günther
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025, Günther, Tom.
       <br/>
     
   </p>

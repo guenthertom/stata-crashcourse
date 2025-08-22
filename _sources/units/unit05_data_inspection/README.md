@@ -18,7 +18,7 @@ When you've completed the video, try to solve the following exercises. For your 
 
 <h5>Exercise 1 – Quiz</h5>
 
-Answer the following Single-Choice (i.e., there is always exactly one correct answer) questions. <br>
+Answer the following Single-Choice questions (i.e., there is always exactly one correct answer). <br>
 
 <span style="display:block; margin-top:0.5em;"></span>
 
@@ -34,12 +34,12 @@ D) Value labels change the underlying numeric values.
 **Correct answer: C** <br>
 Adding two strings will paste them together: "Hello" + "World" = "HelloWorld" <br>
 Integers do not have decimals, floats may have decimals. <br>
-Value labels are so-called meta data that assign *additional* information to underlying numeric values.
+Value labels are so-called meta data that assign **additional** information to underlying numeric values.
 </details>
 
 <span style="display:block; margin-top:0.5em;"></span>
 
-**Q2: Which of the following is a valid *if* condition?** <br>
+**Q2: Which of the following contains a valid *if* condition?** <br>
 A) summarize price if mpg = 20 <br>
 B) summarize price if mpg == 20 <br>
 C) summarize price if mpg == 20 | 30 <br>
@@ -72,9 +72,9 @@ D) 3, 6, 9
 <details>
 <summary>💡 Hint</summary>
 
-You only have this one variable in the data set. <br> 
+Assume that you only have this one variable in the dataset. <br> 
 A negative number in the command means you are counting backwards, starting at the very last observation. <br>
-In Stata, the first entry of an ordered list gets the index 1.
+In Stata, the first entry of an ordered list has the index 1.
 
 </details>
 
@@ -82,20 +82,20 @@ In Stata, the first entry of an ordered list gets the index 1.
 <summary>✅ Solution</summary>
 
 **Correct answer: A** <br>
-0 is not part of the data.
+0 is not part of the data. <br>
 The -3 means that we count backwards, starting with 10 as the first observation. Thus, 8 is the third observation from the end of the list.
 </details>
 
-<h5>Exercise 2 – Generating and inspecting value labels</h5>
+<h5>Exercise 2 – Generating and inspecting value labels </h5>
 
-- Load the built-in *auto.dta*.
-- `Browse` the data and look for a String variable.
-- `Encode` this variable. What do you observe?
-- Use `codebook` to inspect the variable *foreign*. What are its value and attached value labels?
-- `Recode` *foreign* so that the value 1 now equals 2. What happens to the values and value labels?
+- Load the built-in dataset *auto.dta*.
+- `browse` the data and look for a string variable.
+- `encode` this variable. What do you observe?
+- Use `codebook` to inspect the variable *foreign*. What are its values and attached value labels?
+- `recode` *foreign* so that the value 1 now equals 2. What happens to the values and value labels?
 - Use `label dir` and `label list` to inspect all value labels of the data.
 
-<textarea id="ex2-1" rows="20"
+<textarea id="ex2" rows="20"
   style="width:100%;
          font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
          font-size: 0.95rem;
@@ -111,8 +111,8 @@ The -3 means that we count backwards, starting with 10 as the first observation.
 <details>
 <summary>💡 Hint</summary>
 
-When `browsing` the data, value labels will be highlighted in blue. <br>
-Some commands like `encode` have mandatory *options* that you have to specify. These are not in `[]` in the *help* file.
+When browsing the data, value labels will be highlighted in blue. <br>
+Some commands like `encode` have mandatory *options* that you have to specify. These are not enclosed in `[]` in the *help* file.
 
 </details>
 
@@ -126,40 +126,40 @@ browse
 encode make, gen(make_num)
 tab make_num
 tab make_num, nolab
- ```
+```
 
-Encode sorts the string variable alphabetically and then assigns consecutive integers (here: 1-74) as categories. 
+`encode` sorts the string variable alphabetically and then assigns consecutive integers (here: 1-74) as values for the categories. 
  
 ```stata
 codebook foreign
- ``` 
+``` 
  
-The variable has two unique values (0/1) with the labels "Domestic" (0) and "Foreign" (1). 
+The variable has two unique values (0/1) with the labels "*Domestic*" (0) and "*Foreign*" (1). 
 
 ```stata
 recode foreign (1=2)
 codebook foreign
- ``` 
+``` 
  
 The variable still has two unique values (0/2), but there is no label attached to the number 2. Value labels do not change according to changes in the values themselves.
  
 ```stata
 label dir
-lab list 
- ```  
+label list 
+```  
 
-There are two value labels in the data named "make_num" (self-generated) and "origins". `Label list` provides the content of all value labels in the data.
+There are two value labels in the data named "*make_num*" (self-generated) and "*origin*". `label list` provides the content of all value labels in the data.
  
 </details>
 
 <h5>Exercise 3 – Complex if-conditions </h5>
 
-- Load the original *auto.dta*.
-- Show frequencies of all car types stored in the variable `make`.
+- Load the built-in dataset *auto.dta*.
+- Show frequencies of all car types stored in the variable *make*.
 - Use an *if*-condition to show which car types weigh more than 4000 lbs.
-- Use an *if*-condition to show which car types weigh less than 2000 lbs or more than 4000 lbs and cost more than 8000.
+- Use an *if*-condition to show which car types weigh less than 2000 lbs OR `|` more than 4000 lbs AND `&` cost more than 8000.
 
-<textarea id="ex2-1" rows="6"
+<textarea id="ex3" rows="6"
   style="width:100%;
          font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
          font-size: 0.95rem;
@@ -175,8 +175,8 @@ There are two value labels in the data named "make_num" (self-generated) and "or
 <details>
 <summary>💡 Hint</summary>
 
-You can use the command `tabulate` to show frequencies. <br>
-You can combine *if*-conditions with logical operators. When combining AND `&` with OR `|` conditions, Stata will evaluate AND `&` conditions first. You can override this behavior by putting OR `|` conditions in paratheses `()`.
+You could use `tabulate` to show frequencies. <br>
+You may combine *if*-conditions with logical operators. When combining AND `&` with OR `|` conditions, Stata will evaluate AND `&` conditions first. You can override this behavior by putting OR `|` conditions in parentheses `()`.
 
 </details>
 
@@ -188,7 +188,7 @@ webuse auto, clear
 tab make
 tab make if weight > 4000
 tab make if (weight < 2000 | weight > 4000) & price > 8000
- ```
+```
 
 </details>
 

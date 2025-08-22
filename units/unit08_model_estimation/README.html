@@ -175,7 +175,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../unit01_first_steps/README.html">Unit 1 – First Steps in Stata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unit01_first_steps/README.html">Unit 1 – First steps in Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit02_commands/README.html">Unit 2 – Stata commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit03_setup_environment/README.html">Unit 3 - Setting up Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit04_loading_data/README.html">Unit 4 - Loading data into Stata</a></li>
@@ -184,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unit07_data_wrangling/README.html">Unit 7 - Data wrangling</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit 8 - Model estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit09_output/README.html">Unit 9 - Output presentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final/README.html">Wrap-up &amp; resources</a></li>
 </ul>
 
     </div>
@@ -362,11 +363,11 @@ document.write(`
 <h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
 <p><span style="display:block; margin-top:0.5em;"></span></p>
-<p>We will use <strong>hs0</strong> data from UCLA for the following exercises.</p>
+<p>We will use the publicly available <strong>hs0</strong> data from UCLA for the following exercises.</p>
 <h5>Exercise 1 – Ordinary Least Squares </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em>. Interpret the estimated coefficient.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regress</span></code> <em>math</em> on <em>write</em>. Interpret the estimated coefficient.</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">i.gender</span></code> to the model. Interpret the estimated coefficient.</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">c.write#i.gender</span></code> to the model. Interpret the estimated coefficient.</p></li>
 </ul>
@@ -384,7 +385,7 @@ document.write(`
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p><em>Math</em> is your dependent (left-hand side) variable. <br>
+<p><em>math</em> is your dependent (left-hand side) variable. <br>
 The qualifier <code class="docutils literal notranslate"><span class="pre">c.</span></code> tells Stata that a variable is continuous, <code class="docutils literal notranslate"><span class="pre">i.</span></code> is for categorical variables.
 By combining variables with <code class="docutils literal notranslate"><span class="pre">#</span></code> you include an interaction between them into the model. <br></p>
 </details>   
@@ -406,12 +407,12 @@ By combining variables with <code class="docutils literal notranslate"><span cla
 </details>
 <h5>Exercise 2 – Predictions & residuals </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Predict</span></code> fitted values <em>math_hat</em>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Predict</span></code> residuals <em>resid_hat</em>.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict</span></code> fitted values <em>math_hat</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict</span></code> residuals <em>resid_hat</em>.</p></li>
 <li><p>Plot residuals vs. fitted values.</p></li>
-<li><p>Provide a <strong>QQ-plot</strong> for the standardized residuals.</p></li>
+<li><p>Provide a <strong>QQ-plot</strong> for the standardized residuals <em>resid_hat_std</em>.</p></li>
 </ul>
 <textarea id="ex2" rows="8"
   style="width:100%;
@@ -427,10 +428,10 @@ By combining variables with <code class="docutils literal notranslate"><span cla
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">predict</span></code> to calculate residuals and standardized residuals. <br>
-You can also calculate residuals by hand after predicting the fitted values. <br>
+<p>You may use <code class="docutils literal notranslate"><span class="pre">predict</span></code> to calculate residuals and standardized residuals. <br>
+You may also calculate residuals by hand after predicting the fitted values. <br>
 Use <code class="docutils literal notranslate"><span class="pre">scatter</span></code> to plot residuals (y-axis) against fitted values (x-axis). <br>
-Use <code class="docutils literal notranslate"><span class="pre">qnorm</span> <span class="pre">[residuals_standardized]</span></code> for the QQ-plot.</p>
+Use <code class="docutils literal notranslate"><span class="pre">qnorm</span> <span class="pre">resid_hat_std</span></code> for the QQ-plot.</p>
 </details> 
 <details>
 <summary>✅ Solution</summary>
@@ -446,10 +447,10 @@ Use <code class="docutils literal notranslate"><span class="pre">qnorm</span> <s
 </details>
 <h5>Exercise 3 – Testing hypotheses </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and *gender.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Test</span></code> if the coefficient on <em>write</em> is equal to 1.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Test</span></code> if <em>write</em> and <em>gender</em> are jointly significant.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code> if the coefficient on <em>write</em> is equal to 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code> if <em>write</em> and <em>gender</em> are jointly significant.</p></li>
 </ul>
 <textarea id="ex3" rows="6"
   style="width:100%;
@@ -478,10 +479,10 @@ Use <code class="docutils literal notranslate"><span class="pre">qnorm</span> <s
 </details>
 <h5>Exercise 4 – Using `margins` </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regress</span></code> <em>math</em> on <em>write</em> and <em>gender</em>.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">margins</span> <span class="pre">i.gender</span></code> to compare predicted <em>math</em> scores across <em>gender</em>.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">predict</span></code> to calculate fitted values. <code class="docutils literal notranslate"><span class="pre">Summarize</span></code> fitted values <code class="docutils literal notranslate"><span class="pre">by</span></code> <em>gender</em>. Compare your results.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">predict</span></code> to calculate fitted values. <code class="docutils literal notranslate"><span class="pre">summarize</span></code> fitted values <code class="docutils literal notranslate"><span class="pre">by</span></code> <em>gender</em>. Compare your results.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">margins,</span> <span class="pre">dydx(write)</span></code> to interpret marginal effects.</p></li>
 </ul>
 <textarea id="ex4" rows="10"
@@ -506,7 +507,7 @@ margins gender
 </pre></div>
 </div>
 <p>Calculated means are different. <br>
-<code class="docutils literal notranslate"><span class="pre">margins</span> <span class="pre">female</span></code> reports adjusted means: it predicts <em>math</em> for each observation twice (as if male and as if female), holding each observation’s own <em>write</em> value fixed, then averages. So groups are compared with the same distribution of controls. <br>
+<code class="docutils literal notranslate"><span class="pre">margins</span> <span class="pre">gender</span></code> reports adjusted means: it predicts <em>math</em> for each observation twice (as if male and as if female), holding each observation’s own <em>write</em> value fixed, then averages. So groups are compared with the same distribution of controls. <br>
 Using <code class="docutils literal notranslate"><span class="pre">predict</span></code> and <code class="docutils literal notranslate"><span class="pre">bys</span> <span class="pre">gender:</span> <span class="pre">summarize</span></code> averages fitted values within each group’s actual covariate distribution, so differences in <em>write</em> across groups affect the means.</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span>margins,<span class="k"> dydx</span>(write)
 </pre></div>
@@ -515,7 +516,7 @@ Using <code class="docutils literal notranslate"><span class="pre">predict</span
 </details>
 <h5>Exercise 5 – Non-linear models </h5>
 <ul class="simple">
-<li><p>Load the <strong>hs0</strong> data.</p></li>
+<li><p>Load the dataset <strong>hs0.dta</strong>.</p></li>
 <li><p>Create a dummy variable <em>high_math</em> which equals 1 for observations with a <em>math</em> score over 60, and 0 if <em>math</em> is 60 or lower.</p></li>
 <li><p>Estimate a logistic regression of <em>high_math</em> on <em>write</em> and <em>gender</em>.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">margins,</span> <span class="pre">dydx()</span></code> to calculate average marginal effects.</p></li>
@@ -536,10 +537,10 @@ Using <code class="docutils literal notranslate"><span class="pre">predict</span
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>You need to <code class="docutils literal notranslate"><span class="pre">generate</span></code> a new variable. Use a suitable <em>if</em>-condition and do not forget to exclude <code class="docutils literal notranslate"><span class="pre">missing()</span></code>s. <br>
+<p>You need to <code class="docutils literal notranslate"><span class="pre">generate</span></code> a new variable. Use a suitable <em>if</em>-condition and do not forget to exclude missings. <br>
 Use <code class="docutils literal notranslate"><span class="pre">logit</span></code> to estimate a logistic regression. <br>
 To span the empirical range of <em>write</em>, store <code class="docutils literal notranslate"><span class="pre">r(min)</span></code> and <code class="docutils literal notranslate"><span class="pre">r(max)</span></code> in <strong>locals</strong> after <code class="docutils literal notranslate"><span class="pre">summarize</span></code> and feed these to <code class="docutils literal notranslate"><span class="pre">margins</span></code> with the option <code class="docutils literal notranslate"><span class="pre">at(write=(local_min(1)local_max))</span></code>. <br>
-When calling a local, enclose its name in backticks and apostrophes: `local’.</p>
+When calling a <strong>local</strong>, enclose its name in backticks and apostrophes: `local’.</p>
 </details> 
 <details>
 <summary>✅ Solution</summary>
@@ -564,7 +565,7 @@ marginsplot
 </div>
 </details>
 <h5>Exercise 6 – Quiz </h5>
-<p>Answer the following Single-Choice (i.e., there is always exactly one correct answer) questions on <strong>panel data models</strong>. <br></p>
+<p>Answer the following Single-Choice questions (i.e., there is always exactly one correct answer) on <strong>panel data models</strong>. <br></p>
 <p><span style="display:block; margin-top:0.5em;"></span></p>
 <p><strong>Q1: Which command tells Stata that the dataset is panel data, and what arguments does it require?</strong> <br>
 A) xtreg y x, fe <br>
@@ -586,8 +587,8 @@ D) xtreg y x, robust</p>
 <details>
 <summary>✅ Solution</summary>
 <p><strong>Correct answer: A</strong> <br>
-The option <code class="docutils literal notranslate"><span class="pre">re</span></code> estimates a <em>random effects</em> model. <br>
-The option <code class="docutils literal notranslate"><span class="pre">robust</span></code> provides robust standard errors.</p>
+The <em>option</em> <code class="docutils literal notranslate"><span class="pre">re</span></code> estimates a <em>random effects</em> model. <br>
+The <em>option</em> <code class="docutils literal notranslate"><span class="pre">robust</span></code> provides robust standard errors.</p>
 </details>
 <p><span style="display:block; margin-top:0.5em;"></span></p>
 <p><strong>Q3: Suppose you have estimated a fixed-effects model with:</strong> <br></p>
@@ -595,14 +596,14 @@ The option <code class="docutils literal notranslate"><span class="pre">robust</
 </pre></div>
 </div>
 <p>Which of the following statements is true? <br>
-A) The effect of educ is identified only from variation <strong>within</strong> individuals over time.  <br>
-B) The effect of educ is identified from both <strong>between</strong> and <strong>within</strong> variation.  <br>
+A) The effect of <em>educ</em> is identified only from variation <strong>within</strong> individuals over time.  <br>
+B) The effect of <em>educ</em> is identified from both <strong>between</strong> and <strong>within</strong> variation.  <br>
 C) In fixed effects models, standard errors are automatically cluster robust.  <br>
 D) The model cannot identify the effect of <em>exp</em> since work experience never changes over time.</p>
 <details>
 <summary>✅ Solution</summary>
 <p><strong>Correct answer: A</strong> <br>
-To estimate cluster robust standard errors, you need to specify the option <code class="docutils literal notranslate"><span class="pre">vce(cluster</span> <span class="pre">id)</span></code></p>
+To estimate cluster robust standard errors, you need to specify the <em>option</em> <code class="docutils literal notranslate"><span class="pre">vce(cluster</span> <span class="pre">id)</span></code></p>
 </details>
 <p><span style="display:block; margin-top:4em;"></span></p>
 </section>
@@ -699,7 +700,7 @@ By Tom Günther
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025, Günther, Tom.
       <br/>
     
   </p>

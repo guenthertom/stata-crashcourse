@@ -175,7 +175,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit 1 – First Steps in Stata</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit 1 – First steps in Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit02_commands/README.html">Unit 2 – Stata commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit03_setup_environment/README.html">Unit 3 - Setting up Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit04_loading_data/README.html">Unit 4 - Loading data into Stata</a></li>
@@ -184,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unit07_data_wrangling/README.html">Unit 7 - Data wrangling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit08_model_estimation/README.html">Unit 8 - Model estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit09_output/README.html">Unit 9 - Output presentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final/README.html">Wrap-up &amp; resources</a></li>
 </ul>
 
     </div>
@@ -363,9 +364,9 @@ document.write(`
 <p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
 <h5>Exercise 1 – Opening and exploring data</h5>
 <ul class="simple">
-<li><p>Load the example dataset <em>auto</em>.</p></li>
+<li><p>Load the built-in dataset <em>auto.dta</em>.</p></li>
 <li><p>Inspect the first 10 rows.</p></li>
-<li><p>List three variables you observe in the dataset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> three variables you observe in the dataset.</p></li>
 </ul>
 <textarea id="ex1-1" rows="4"
   style="width:100%;
@@ -393,7 +394,7 @@ document.write(`
 </details>
 <h5>Exercise 2 – Understanding how Stata stores the data</h5>
 <ul class="simple">
-<li><p>Summarize the variable <em>price</em>. Sort the data by <em>weight</em>. Summarize <em>price</em> again. What do you observe?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Summarize</span></code> the variable <em>price</em>. <code class="docutils literal notranslate"><span class="pre">Sort</span></code> the data by <em>weight</em>. <code class="docutils literal notranslate"><span class="pre">Summarize</span></code> <em>price</em> again. What do you observe?</p></li>
 </ul>
 <textarea id="ex2-1" rows="6"
   style="width:100%;
@@ -409,7 +410,7 @@ document.write(`
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>Check out the <em>help</em> file for summarize.</p>
+<p>Check out the <em>help</em> file for <code class="docutils literal notranslate"><span class="pre">summarize</span></code>.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -418,11 +419,11 @@ document.write(`
 <span class="k">summarize</span> price
 </pre></div>
 </div>
-<p>The output is the same. Summarize uses all non-missing information on price. Sorting does not matter.</p>
+<p>The output is the same. <code class="docutils literal notranslate"><span class="pre">Summarize</span></code> uses all non-missing information on <em>price</em>. Sorting does not matter.</p>
 </details>
 <p><span style="display:block; margin-top:0.5em;"></span></p>
 <ul class="simple">
-<li><p>Display the variable <em>price</em>. Sort the data by <em>weight</em>. Display <em>price</em> again. What do you observe?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Display</span></code> the variable <em>price</em>. <code class="docutils literal notranslate"><span class="pre">Sort</span></code> the data by <em>weight</em>. <code class="docutils literal notranslate"><span class="pre">Display</span></code> <em>price</em> again. What do you observe?</p></li>
 </ul>
 <textarea id="ex2-2" rows="6"
   style="width:100%;
@@ -442,17 +443,17 @@ document.write(`
 </details>
 <details>
 <summary>✅ Solution</summary>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">di</span> price
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">display</span> price
 <span class="k">sort</span> weight
-<span class="k">di</span> price
+<span class="k">display</span> price
 </pre></div>
 </div>
-<p>The output is different. Display only shows the content of price for the first observation.
+<p>The output is different. <code class="docutils literal notranslate"><span class="pre">Display</span></code> only shows the content of <em>price</em> for the first observation.
 As Stata stores data in an ordered table, sorting becomes relevant here.</p>
 </details>
 <h5>Exercise 3 – Navigating Stata's interface</h5>
 <ul class="simple">
-<li><p>Select the variables <em>mpg</em> and <em>make</em> in the Variables window. Use the Properties window to compare their storage types</p></li>
+<li><p>Select the variables <em>mpg</em> and <em>make</em> in the <strong>Variables</strong> window. Use the <strong>Properties</strong> window to compare their storage types.</p></li>
 </ul>
 <textarea id="ex3-1" rows="3"
   style="width:100%;
@@ -468,7 +469,7 @@ As Stata stores data in an ordered table, sorting becomes relevant here.</p>
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>You can select any variable in the Variables window by clicking on its name.</p>
+<p>You can select any variable in the <strong>Variables</strong> window by clicking on its name.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -477,8 +478,8 @@ As Stata stores data in an ordered table, sorting becomes relevant here.</p>
 </details>
 <p><span style="display:block; margin-top:0.5em;"></span></p>
 <ul class="simple">
-<li><p>Summarize the variable <em>foreign</em>. What type of variable is it?</p></li>
-<li><p>Repeat the command for the variable <em>headroom</em> by using the History window.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Summarize</span></code> the variable <em>foreign</em>. What type of variable is it?</p></li>
+<li><p>Repeat the command for the variable <em>headroom</em> by using the <strong>History</strong> window.</p></li>
 </ul>
 <textarea id="ex3-2" rows="4"
   style="width:100%;
@@ -494,7 +495,7 @@ As Stata stores data in an ordered table, sorting becomes relevant here.</p>
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>You can repeat any command from the History window by clicking on it. You will have to change the variable passed to the command though.</p>
+<p>You can repeat any command from the <strong>History</strong> window by clicking on it. You will have to change the variable passed to the command though.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -502,7 +503,7 @@ As Stata stores data in an ordered table, sorting becomes relevant here.</p>
 <span class="k">summarize</span> headroom
 </pre></div>
 </div>
-<p><em>foreign</em> is a dummy variable.</p>
+<p><em>foreign</em> is a dummy variable with value labels.</p>
 </details>
 <p><span style="display:block; margin-top:4em;"></span></p>
 </section>
@@ -599,7 +600,7 @@ By Tom Günther
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025, Günther, Tom.
       <br/>
     
   </p>

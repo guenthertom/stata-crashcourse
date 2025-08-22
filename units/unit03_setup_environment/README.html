@@ -175,7 +175,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../unit01_first_steps/README.html">Unit 1 – First Steps in Stata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unit01_first_steps/README.html">Unit 1 – First steps in Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit02_commands/README.html">Unit 2 – Stata commands</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit 3 - Setting up Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit04_loading_data/README.html">Unit 4 - Loading data into Stata</a></li>
@@ -184,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../unit07_data_wrangling/README.html">Unit 7 - Data wrangling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit08_model_estimation/README.html">Unit 8 - Model estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit09_output/README.html">Unit 9 - Output presentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../final/README.html">Wrap-up &amp; resources</a></li>
 </ul>
 
     </div>
@@ -363,8 +364,8 @@ document.write(`
 <p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
 <h5>Exercise 1 – Writing your first do-file</h5>
 <ul class="simple">
-<li><p>Open the do-file editor with <code class="docutils literal notranslate"><span class="pre">doedit</span></code></p></li>
-<li><p>Write a simple do-file that loads the <em>auto.dta</em> and displays the <strong>mean</strong> of <em>price</em> and <em>weight</em></p></li>
+<li><p>Open the do-file editor with <code class="docutils literal notranslate"><span class="pre">doedit</span></code>.</p></li>
+<li><p>Write a do-file that loads the built-in dataset <em>auto.dta</em> and show the <strong>mean</strong> of <em>price</em> and <em>weight</em>.</p></li>
 </ul>
 <textarea id="ex1" rows="6"
   style="width:100%;
@@ -380,7 +381,7 @@ document.write(`
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>Use the same commands that you would use in the Command window. You can calculate the mean of variables with <code class="docutils literal notranslate"><span class="pre">summarize</span></code>.</p>
+<p>Use the same commands that you would use in the <strong>Command</strong> window. You can calculate the <strong>mean</strong> of variables with <code class="docutils literal notranslate"><span class="pre">summarize</span></code>.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -396,7 +397,7 @@ document.write(`
 </details>
 <h5>Exercise 2 – Commenting your code</h5>
 <ul class="simple">
-<li><p>Extend your do-file by adding comments explaining each step.</p></li>
+<li><p>Extend your do-file by adding <em>comments</em> explaining each step.</p></li>
 <li><p>Run the commented do-file. What do you observe?</p></li>
 </ul>
 <textarea id="ex2" rows="6"
@@ -413,7 +414,7 @@ document.write(`
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>Use <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code> or <code class="docutils literal notranslate"><span class="pre">*/</span> <span class="pre">multi-line</span> <span class="pre">comment</span> <span class="pre">*/</span></code> to create comments.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code> or <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">multi-line</span> <span class="pre">comment</span> <span class="pre">*/</span></code> to create <em>comments</em>.</p>
 </details>
 <details>
 <summary>✅ Solution</summary>
@@ -423,10 +424,10 @@ document.write(`
 <span class="k">summarize</span> price weight 
 </pre></div>
 </div>
-<p>Comments are not shown in the output. The output looks the same as before.</p>
+<p><em>Comments</em> are not shown in the output. The output looks the same as before.</p>
 </details>
 <h5>Exercise 3 – Working with delimiters</h5>
-<p>Inspect the following Stata code which summarizes multiple variables from the <em>auto.dta</em>:</p>
+<p>Inspect the following Stata code which summarizes multiple variables:</p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">webuse</span> auto,<span class="k"> clear</span>
 <span class="k">summarize</span> price <span class="cs">///</span>
 make  <span class="cs">///</span>
@@ -455,7 +456,7 @@ weight
 </details>
 <details>
 <summary>✅ Solution</summary>
-<p>The code works as <code class="docutils literal notranslate"><span class="pre">///</span></code> indicates that <code class="docutils literal notranslate"><span class="pre">summarize</span></code> spans multiple lines. <br></p>
+<p>The code works since <code class="docutils literal notranslate"><span class="pre">///</span></code> tells Stata that <code class="docutils literal notranslate"><span class="pre">summarize</span></code> spans multiple lines. <br></p>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span>#delimit ;
 <span class="k">summarize</span> price 
 make
@@ -466,8 +467,8 @@ weight
 <p>To return to the default delimiter, type <code class="docutils literal notranslate"><span class="pre">#delimit</span> <span class="pre">cr</span></code></p>
 </details>
 <h5>Exercise 4 – Pathing</h5>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">globals</span></code> to store paths to your data, working directory, do-files, output folder, etc. <br>
-By doing so, you can just call the correct global instead of repeatedly copy-pasting long directory paths.</p>
+<p>You may use <code class="docutils literal notranslate"><span class="pre">globals</span></code> to store paths to your data, working directory, do-files, output folder, etc. <br>
+By doing so, you may call the correct global instead of repeatedly copy-pasting long directory paths.</p>
 <ul class="simple">
 <li><p>Create a new folder on your desktop called <em>stata_crashcourse</em>.</p></li>
 <li><p>In the new folder, create three subfolders: <em>do</em>, <em>output</em>, <em>data</em>.</p></li>
@@ -490,7 +491,7 @@ By doing so, you can just call the correct global instead of repeatedly copy-pas
   placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
 <details>
 <summary>💡 Hint</summary>
-<p>When creating a <code class="docutils literal notranslate"><span class="pre">global</span></code>, put the file name in “”. <br>
+<p>When creating a global, put the file name in <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>. <br>
 You can call an existing global with <code class="docutils literal notranslate"><span class="pre">${global_name}</span></code>. <br>
 You can add characters to an existing global.</p>
 </details>
@@ -603,7 +604,7 @@ By Tom Günther
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025, Günther, Tom.
       <br/>
     
   </p>

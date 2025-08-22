@@ -18,11 +18,11 @@ When you've completed the video, try to solve the following exercises. For your 
 
 <span style="display:block; margin-top:0.5em;"></span>
 
-We will use **hs0** data from UCLA for the following exercises. 
+We will use the publicly available **hs0** data from UCLA for the following exercises. 
 
 <h5>Exercise 1 – Transforming variables </h5>
 
-- Load the **hs0** data.
+- Load the dataset **hs0.dta**.
 - Calculate the total score over the variables *read*, *write*, *math*, *science*, and *socst*.
 - Calculate the mean score over the five variables using `generate`.
 - Calculate the mean score over the five variables using `egen`. Compare your results.
@@ -46,7 +46,7 @@ We will use **hs0** data from UCLA for the following exercises.
 
 You can load the data with `use "https://stats.idre.ucla.edu/stat/data/hs0", clear`. <br>
 You can calculate the mean by dividing the total score by the number of categories. <br>
-There is an `egen` function for z-standardization. 
+There is an `egen` function for mean calculation and z-standardization. 
 
 </details>
 
@@ -61,7 +61,7 @@ egen mean_score_comp = rowmean(read write math science socst)
 br if mean_score != mean_score_comp
 ```
 
-The mean calculation by hand excludes all observations that have missing information on any score variables. <br>
+The mean calculation by hand excludes all observations that have missing information on any score variable. <br>
 `egen rowmean()` ignores missing values.
 
 ```stata
@@ -73,9 +73,9 @@ hist math_z, norm
 
 <h5>Exercise 2 – Working with missing observations </h5>
 
-- Load the **hs0** data.
+- Load the dataset **hs0.dta**.
 - Check how many missings there are on the variables *read*, *math* and *science*.
-- Summarize *math* scores for students with a *science* score below 60 and for students with a score above 60.
+- `summarize` *math* scores for students with a *science* score below 60 and for students with a score above 60.
 - Impute missing *science* scores by the overall mean of *science*. Generate a new variable for the imputed version and flag imputed observations.
 
 <textarea id="ex2" rows="20"
@@ -132,10 +132,10 @@ Since we impute missing values with the overall mean, the mean of the imputed va
 
 <h5>Exercise 3 – Working `by` subgroups </h5>
 
-- Load the **hs0** data.
+- Load the dataset **hs0.dta**.
 - Inspect and `encode` the variable *prgtype*.
 - Calculate mean *math* scores `by` program type. Which type performs best?
-- Plot histograms of *math* scores `by` *gender*
+- Plot one `histogram` each for *math* scores `by` *gender*.
 
 <textarea id="ex3" rows="8"
   style="width:100%;
@@ -153,8 +153,8 @@ Since we impute missing values with the overall mean, the mean of the imputed va
 <details>
 <summary>💡 Hint</summary>
 
-You do not have to create new variables for the mean scores. `Summarize` works with `by` if the data is sorted. Use `bysort` for that. <br>
-You can plot two seperate histograms or combine them in one graph. If *histogram* does not support `by`, you have to work with *if*-conditions.
+You do not have to create new variables for the mean scores. `summarize` works with `by` if the data is sorted. Use `bysort` for that. <br>
+You can plot two seperate histograms or combine them in one graph. If *histogram* does not support `by`, you have to work with *if*-conditions instead.
 
 </details> 
 
@@ -173,19 +173,19 @@ The academic tracks have the highest average math scores.
 
 ```stata
 codebook gender
-hist math if gender == 1
-hist math if gender == 2
+histogram math if gender == 1
+histogram math if gender == 2
 // Both in one graph
-hist math if gender == 1, col(red) addplot(hist math if gender == 2)
+histogram math if gender == 1, col(red) addplot(histogram math if gender == 2)
 // Using twoway
 twoway (hist math if gender == 1, col(red)) (hist math if gender == 2)
 ```
 
 </details>
 
-<h5>Exercise 4 – Managing the size of your data set </h5>
+<h5>Exercise 4 – Managing the size of your dataset </h5>
 
-- Load the **hs0** data.
+- Load the dataset **hs0.dta**.
 - Drop the variables *schtyp* and *ses*
 - Keep only complete (non-missing) observations.
 - Drop all observations from a *vocational* program.
@@ -224,7 +224,7 @@ codebook prgtype
 drop if prgtype == "vocati"
 ```
 
-You could also `encode` prgtype before dropping variables if you do not want to work with strings.
+You could also `encode prgtype` before dropping variables if you do not want to work with strings.
 
 </details>  
   

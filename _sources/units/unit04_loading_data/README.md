@@ -18,10 +18,9 @@ When you've completed the video, try to solve the following exercises. For your 
 
 <h5>Exercise 1 – Opening and exploring data</h5>
 
-Inspect the following Stata code which uses the built-in *auto.dta*:
+Inspect the following Stata code which uses the built-in dataset *auto.dta*:
 
 ```stata
-
 // Load data and create a new variable
 webuse auto
 gen price_to_weight_ratio = price / weight
@@ -29,7 +28,6 @@ gen price_to_weight_ratio = price / weight
 // Load the data again, to create a different variable
 webuse auto
 gen mpg_to_weight_ratio = mpg / weight
-
 ```
 
 - Does the code execute without throwing an error? Explain your answer.
@@ -50,24 +48,24 @@ gen mpg_to_weight_ratio = mpg / weight
 <details>
 <summary>💡 Hint</summary>
 
-Consult the *help* file of the command `use`.
+Consult the *help* file of the command `webuse`.
 
 </details>
 
 <details>
 <summary>✅ Solution</summary>
 
-The code throws an error as we do not clear the memory of Stata when loading the data again. <br>
+The code throws an error as we do not `clear` the memory of Stata when loading the data again. <br>
 Stata will not overwrite currently stored data by itself.
 
 </details>
 
 <h5>Exercise 2 – Importing Excel data</h5>
 
-- Download our [survey.xlsx](survey.xlsx) and safe it into your working folder.
+- Download our dataset [survey.xlsx](survey.xlsx) and save it into your working folder.
 - Set the working directory to your working folder.
 - Import the spreadsheet data with the command `import excel`. Try to import variable names as well.
-- `Browse` the data.
+- `browse` the data.
 
 <textarea id="ex2" rows="8"
   style="width:100%;
@@ -85,7 +83,7 @@ Stata will not overwrite currently stored data by itself.
 <details>
 <summary>💡 Hint</summary>
 
-You can set your working directory with `cd` and your directory path. <br>
+You can set your working directory with `cd` and your directory path enclosed in `""`. <br>
 Use a suitable *option* to import the variable names from the spreadsheet.
 
 </details>
@@ -100,16 +98,16 @@ import excel using "survey.xlsx", firstrow clear
 browse
 ```
 
-Without the option `firstrow` variable names will be generic capital letters (A, B, C, ...).
+Without the *option* `firstrow` variable names will be generic capital letters (A, B, C, ...).
 
 </details>
 
 <h5>Exercise 3 – Importing .csv data</h5>
 
-- Download our [survey.csv](survey.csv) and safe it into your working folder.
+- Download our dataset [survey.csv](survey.csv) and save it into your working folder.
 - Set the working directory to your working folder.
 - Import the data with the command `import delimited`. Try to import variable names as well.
-- `Browse` the data.
+- `browse` the data.
 
 <textarea id="ex3" rows="8"
   style="width:100%;
@@ -127,10 +125,10 @@ Without the option `firstrow` variable names will be generic capital letters (A,
 <details>
 <summary>💡 Hint</summary>
 
-You can set your working directory with `cd` and your directory path. <br>
-You may want to open the .csv file first to check that it uses standard delimiters. <br>
-You can specify the delimiter in the *options* of `import delimited`. <br>
-If you use the same do-file as before, do not forget to `clear`.
+You can set your working directory with `cd` and your directory path enclosed in `""`. <br>
+You may want to open the **.csv** file first to check if it uses standard delimiters. <br>
+You can specify the delimiter as an *option* of `import delimited`. <br>
+If you use the same do-file as before, do not forget to `clear` the memory.
 
 </details>
 
@@ -144,7 +142,7 @@ import delimited using "survey.csv", clear
 browse
 ```
 
-By default, `import delimited` will check the first entries of any .csv file for variable names.
+By default, `import delimited` will check the first entries of any **.csv** file for variable names.
 
 </details>
 
@@ -152,10 +150,10 @@ By default, `import delimited` will check the first entries of any .csv file for
 
 Not all data is nicely formatted after your import. We prepared a little toy data set to show you what you may have to deal with in the future.
 
-- Download our [messy.xlsx](messy.xlsx) and safe it into your working folder.
+- Download our dataset [messy.xlsx](messy.xlsx) and save it into your working folder.
 - Set the working directory to your working folder.
 - Import the data and inspect it. What do you observe?
-- `Rename` variables if necessary.
+- `rename` variables if necessary.
 - Try to use `destring` to fix the wrongly imported variable *score*. 
 
 <textarea id="ex4" rows="10"
@@ -174,10 +172,10 @@ Not all data is nicely formatted after your import. We prepared a little toy dat
 <details>
 <summary>💡 Hint</summary>
 
-You can set your working directory with `cd` and your directory path. <br>
-If you use the same do-file as before, do not forget to `clear`. <br>
+You can set your working directory with `cd` and your directory path enclosed in `""`. <br>
+If you use the same do-file as before, do not forget to `clear` the memory. <br>
 In Stata, variable names may not start with numbers. <br>
-Inspect the data anytime you apply the command `destring`.
+Inspect the data anytime you applied the command `destring`.
 
 </details>
 
@@ -191,13 +189,13 @@ import excel using "messy.xlsx", firstrow clear
 browse
 ```
 
-Stata manages to correct some non-applicable variable names by itself. It stores the original names as a *label*. We do not need to use `rename` here. All variables are imported as *strings*.
+Stata manages to correct some non-applicable variable names by itself. It stores the original names as a *label*. We do not need to use `rename` here. All variables are imported as strings.
 
 ```stata
-destring score, replace // does not work
-destring score, gen(score_num) // does not work
-destring score, gen(score_num) force // Creates many missings
-destring score, gen(score_num) dpcomma  
+destring score, replace // does not work as intended
+destring score, gen(score_num) // does not work as intended
+destring score, gen(score_num) force // creates many missings
+destring score, gen(score_num) dpcomma // works as intended
 ```
 
 We have to apply the *option* `dpcomma` to tell Stata to interpret commas as decimal points. Otherwise, `destring` will not execute or delete many of our observations. You have to be extra careful when using this command.

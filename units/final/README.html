@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Unit 6 – Building your data set &#8212; Stata Crash Course</title>
+    <title>Wrap-up &amp; Resources &#8212; Stata Crash Course</title>
   
   
   
@@ -57,12 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'units/unit06_dataset_building/README';</script>
-    <link rel="canonical" href="/stata-crashcourse/units/unit06_dataset_building/README.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'units/final/README';</script>
+    <link rel="canonical" href="/stata-crashcourse/units/final/README.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Unit 7 – Data wrangling" href="../unit07_data_wrangling/README.html" />
-    <link rel="prev" title="Unit 5 – Data inspection" href="../unit05_data_inspection/README.html" />
+    <link rel="prev" title="Unit 9 – Output presentation" href="../unit09_output/README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,11 +179,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../unit03_setup_environment/README.html">Unit 3 - Setting up Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit04_loading_data/README.html">Unit 4 - Loading data into Stata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit05_data_inspection/README.html">Unit 5 - Data inspection</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Unit 6 - Building your data set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unit06_dataset_building/README.html">Unit 6 - Building your data set</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit07_data_wrangling/README.html">Unit 7 - Data wrangling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit08_model_estimation/README.html">Unit 8 - Model estimation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unit09_output/README.html">Unit 9 - Output presentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../final/README.html">Wrap-up &amp; resources</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wrap-up &amp; resources</a></li>
 </ul>
 
     </div>
@@ -239,7 +238,7 @@
       
       
       
-      <li><a href="../../_sources/units/unit06_dataset_building/README.md" target="_blank"
+      <li><a href="../../_sources/units/final/README.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,9 +309,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -323,21 +320,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Unit 6 – Building your data set</h1>
+    <h1>Wrap-up & Resources</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -347,146 +334,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="unit-6-building-your-data-set">
-<h1>Unit 6 – Building your data set<a class="headerlink" href="#unit-6-building-your-data-set" title="Link to this heading">#</a></h1>
-<p>This unit introduces Stata’s merging and appending functionalities, teaching you how to combine datasets using identifiers and manage related options and errors.</p>
-<section id="slides">
-<h2>📄 Slides<a class="headerlink" href="#slides" title="Link to this heading">#</a></h2>
-<p>Read the <a class="reference download internal" download="" href="../../_downloads/8e6c0a0b19a0fbcbb4a90c1c770f1336/unit06_slides.pdf"><span class="xref download myst">slides for this unit</span></a> before watching the video.</p>
-</section>
-<section id="video">
-<h2>▶️ Video<a class="headerlink" href="#video" title="Link to this heading">#</a></h2>
-<p>👉 Click the image to open the video on YouTube. Right-click to open the video in a new tab.</p>
-<p><a class="reference external" href="https://www.youtube.com/watch?v=t0B39srarC4"><img alt="Watch the video" src="https://img.youtube.com/vi/t0B39srarC4/0.jpg" /></a></p>
-</section>
-<section id="exercises">
-<h2>🧪 Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>When you’ve completed the video, try to solve the following exercises. For your solutions, you may use the provided prompt or, even better, solve the tasks directly in Stata.</p>
-<h5>Exercise 0 – Preparing your working environment</h5>
+  <section class="tex2jax_ignore mathjax_ignore" id="wrap-up-resources">
+<h1>Wrap-up &amp; Resources<a class="headerlink" href="#wrap-up-resources" title="Link to this heading">#</a></h1>
+<p>Congratulations on completing the Stata crash course! You are now able to start your empirical projects. Of course, we couldn’t cover everything here—when you run into new questions, these resources will help.</p>
+<p>📚 Further learning</p>
 <ul class="simple">
-<li><p>Set up your working directory</p></li>
-<li><p>Download the following datasets into your working directory:</p>
-<ul>
-<li><p><a class="reference download internal" download="" href="../../_downloads/394795ca9b3fdfcc8c89fa45ab06bd1a/pl.dta"><span class="xref download myst">pl.dta</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/014dea9023f37987c35a99a24406c79d/hh.dta"><span class="xref download myst">hh.dta</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/8d66b10a98629a70364e0c7cd2394564/pers.dta"><span class="xref download myst">pers.dta</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/0aef69f9109c008898505d4a6b57058f/edu_2015.dta"><span class="xref download myst">edu_2015.dta</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/32dc970c33354ecb216154a642177d39/edu_2016.dta"><span class="xref download myst">edu_2016.dta</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/8feb92b2e901a39a0f9b8f61b16be8e6/edu_2017.dta"><span class="xref download myst">edu_2017.dta</span></a></p></li>
+<li><p>Stata’s official <a class="reference external" href="https://www.stata.com/documentation/">documentation</a> and <em>help</em> files cover most tasks and errors.</p></li>
+<li><p><a class="reference external" href="https://www.stata.com/bookstore/microeconometrics-stata/">Microeconometrics Using Stata (2nd ed.)</a> by Cameron &amp; Trivedi is an excellent textbook companion.</p></li>
+<li><p>Community Q&amp;A: <a class="reference external" href="https://www.statalist.org/">Statalist</a>; <a class="reference external" href="https://www.reddit.com/r/stata/">r/stata</a>; <a class="reference external" href="https://stats.stackexchange.com/">Cross Validated (stats, Stack Exchange)</a>; <a class="reference external" href="https://stackoverflow.com/">Stack Overflow</a>; …</p></li>
 </ul>
-</li>
-<li><p>Open a new do-file and specify your paths using <code class="docutils literal notranslate"><span class="pre">global</span></code> macros.</p></li>
-</ul>
-<textarea id="ex0" rows="6"
-  style="width:100%;
-         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
-         font-size: 0.95rem;
-         padding: 0.6rem;
-         border: 1px solid #999;
-         border-radius: 6px;
-         color: #000;
-         background-color: #fff;
-         outline: none;
-         box-shadow: none;"
-  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
-<details>
-<summary>✅ Solution</summary>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">doedit</span>
-<span class="k">global</span> wd <span class="s">&quot;C:/.../Desktop/stata_crashcourse&quot;</span>
-<span class="k">cd</span> <span class="s">&quot;</span><span class="vg">${wd}</span><span class="s">&quot;</span>
-</pre></div>
-</div>
-</details>
-<h5>Exercise 1 – Merging data</h5>
-<ul class="simple">
-<li><p>Load the file <strong>pl.dta</strong> and inspect the data.</p></li>
-<li><p>Open the other datasets. What are suitable identifiers for a merge with <strong>pl.dta</strong>?</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">merge</span></code> the file <strong>pers.dta</strong> to <strong>pl.dta</strong>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">merge</span></code> the file <strong>hh.dta</strong> to <strong>pl.dta</strong>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">append</span></code> the education files and save the file as <strong>edu.dta</strong>. <code class="docutils literal notranslate"><span class="pre">merge</span></code> the file <strong>edu.dta</strong> to <strong>pl.dta</strong>.</p></li>
-<li><p>Inspect your final dataset.</p></li>
-</ul>
-<textarea id="ex1" rows="20"
-  style="width:100%;
-         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
-         font-size: 0.95rem;
-         padding: 0.6rem;
-         border: 1px solid #999;
-         border-radius: 6px;
-         color: #000;
-         background-color: #fff;
-         outline: none;
-         box-shadow: none;"
-  placeholder="Type your solution here. To run code, copy the commands into Stata."></textarea>
-<details>
-<summary>💡 Hint</summary>
-<p>The <em>help</em> file for <code class="docutils literal notranslate"><span class="pre">merge</span></code> will soon become your best friend. <br>
-You can temporarily open new datasets, run commands on them, and store them, if you use <code class="docutils literal notranslate"><span class="pre">preserve</span></code> and <code class="docutils literal notranslate"><span class="pre">restore</span></code>.</p>
-</details>
-<details>
-<summary>✅ Solution</summary>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use pl</span><span class="m">.</span>dta,<span class="k"> clear</span>
-<span class="k">browse</span>
-</pre></div>
-</div>
-<p>You may use the <strong>Command</strong> window to open the other datasets. This does not have to be part of your do-file. <br>
-Make sure that the file <strong>pl.dta</strong> is loaded before starting the merges.</p>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">merge m</span>:<span class="m">1</span> id using <span class="s">&quot;pers.dta&quot;</span>
-<span class="k">tab</span> _merge
-<span class="k">drop</span> _merge
-
-<span class="k">merge m</span>:<span class="m">1</span> hid using <span class="s">&quot;hh.dta&quot;</span>
-<span class="k">tab</span> _merge
-<span class="k">drop</span> _merge
-
-<span class="k">preserve</span> 
-<span class="k">use</span> <span class="s">&quot;edu_2015.dta&quot;</span>,<span class="k"> clear</span>
-<span class="k">append</span> using <span class="s">&quot;edu_2016.dta&quot;</span>
-<span class="k">append</span> using <span class="s">&quot;edu_2017.dta&quot;</span>
-<span class="k">save</span> <span class="s">&quot;edu.dta&quot;</span>,<span class="k"> replace</span>
-<span class="k">restore</span>
-
-<span class="k">merge</span> <span class="m">1</span>:<span class="m">1</span> id year using <span class="s">&quot;edu.dta&quot;</span>
-<span class="k">tab</span> _merge
-<span class="k">drop</span> _merge
-</pre></div>
-</div>
-</details>
-<h5>Exercise 2 – Quiz</h5>
-<p>Answer the following Single-Choice questions (i.e., there is always exactly one correct answer) on the different <em>options</em> for <code class="docutils literal notranslate"><span class="pre">merge</span></code>. <br></p>
-<p><span style="display:block; margin-top:0.5em;"></span></p>
-<p><strong>Q1: Which option keeps only specific variables from the using file?</strong> <br>
-A) keep() <br>
-B) keepusing() <br>
-C) generate() <br>
-D) nogen</p>
-<details>
-<summary>✅ Solution</summary>
-<p><strong>Correct answer: B</strong> <br></p>
-</details>
-<p><span style="display:block; margin-top:0.5em;"></span></p>
-<p><strong>Q2: You want to keep only matched observations from a merge. Which is correct?</strong> <br>
-A) keep(2) <br>
-B) keep(match) <br>
-C) keep(master) <br>
-D) keep(master match)</p>
-<details>
-<summary>✅ Solution</summary>
-<p><strong>Correct answer: B</strong> <br>
-Passing the number 2 to <code class="docutils literal notranslate"><span class="pre">keep</span></code>, only keeps observations from the <em>using</em> data (1 = master only, 3 = matched only).</p>
-</details>
-<p><span style="display:block; margin-top:0.5em;"></span></p>
-<p><strong>Q3: You plan multiple merges and don’t want <code class="docutils literal notranslate"><span class="pre">_merge</span></code> to be created. Which is correct?</strong> <br>
-A) keep() <br>
-B) keepusing() <br>
-C) nolabel <br>
-D) nogen</p>
-<details>
-<summary>✅ Solution</summary>
-<p><strong>Correct answer: D</strong> <br></p>
-</details>
+<p>📝 Feedback &amp; citation</p>
+<p>If you found bugs or have requests, open an issue or send a note. <br>
+If you cite this material, please use:</p>
+<p>Günther, Tom (2025). Stata Crash Course. URL: <a class="reference external" href="https://guenthertom.github.io/stata-crashcourse/">https://guenthertom.github.io/stata-crashcourse/</a>.</p>
 <p><span style="display:block; margin-top:4em;"></span></p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -502,7 +363,7 @@ D) nogen</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./units/unit06_dataset_building"
+            path: "./units/final"
         },
         predefinedOutput: true
     }
@@ -520,22 +381,13 @@ D) nogen</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../unit05_data_inspection/README.html"
+       href="../unit09_output/README.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Unit 5 – Data inspection</p>
+        <p class="prev-next-title">Unit 9 – Output presentation</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="../unit07_data_wrangling/README.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Unit 7 – Data wrangling</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -543,23 +395,6 @@ D) nogen</p>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slides">📄 Slides</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video">▶️ Video</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">🧪 Exercises</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
