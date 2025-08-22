@@ -19,4 +19,6 @@ chapters:
   - file: units/unit08_model_estimation/README
     title: Unit 8 - Model estimation    
   - file: units/unit09_output/README
-    title: Unit 9 - Output presentation      
+    title: Unit 9 - Output presentation
+  - file: units/final/README
+    title: Wrap-up & resources    
