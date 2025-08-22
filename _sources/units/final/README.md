@@ -2,7 +2,7 @@
 
 Congratulations on completing the Stata crash course! You are now able to start your empirical projects. Of course, we couldn’t cover everything here—when you run into new questions, these resources will help.
 
-## 📚 Further learning
+## 🔍 Further learning
 
 - Stata’s official [documentation](https://www.stata.com/documentation/) and *help* files cover most tasks and errors.
 - [Microeconometrics Using Stata (2nd ed.)](https://www.stata.com/bookstore/microeconometrics-stata/) by Cameron & Trivedi is an excellent textbook companion.
